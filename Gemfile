@@ -17,6 +17,8 @@ end
 group :test do
   gem 'rspec'
   gem 'capybara'
+  gem 'spork'
+  gem 'mocha'
 end
 
 # Use unicorn as the web server
