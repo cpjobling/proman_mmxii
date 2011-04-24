@@ -1,9 +1,12 @@
-PromanMmxiia::Application.routes.draw do
-  get "pages/about"
-
-  get "pages/home"
-
-  get "pages/contact"
+Proman2012::Application.routes.draw do
+  match "about", :to => 'pages#about'
+  match "help", :to => 'pages#help'
+  match "contact", :to => 'pages#contact'
+  match "tos", :to => 'pages#tos'
+  match "license", :to => 'pages#license'
+  match "home", :to => 'pages#home'
+  
+  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +57,7 @@ PromanMmxiia::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 

@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-PromanMmxiia::Application.load_tasks
+Proman2012::Application.load_tasks

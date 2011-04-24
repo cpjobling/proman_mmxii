@@ -1,2 +1,43 @@
-%h1 Pages#home
-%p Find me in app/views/pages/home.html.haml
+- title t('title')
+
+- slogan(quotation_generator("If I have seen further it is by standing on the shoulders of giants", :author => "Sir Isaac Newton", :born => 1642, :died => 1727))
+
+- content_for :title_sidebar do
+  Want to help?
+
+- content_for :sidebar do
+  =proman
+  needs your help to get much needed translations.
+  So fork away and send those pull requests.
+
+%p
+  = proman
+  is the new on-line project selection tool that has been
+  developed for the School of Engineering to help manage the EG-353 Research Project.
+%p From this page you can:
+%ul
+  / If you are an administrator  
+  %li
+    Administer
+    = proman
+    \.
+  / If you are a coordinator  
+  %li 
+    Coordinate the students, projects and supervisors within your research centre (coming soon).
+  / If you are staff  
+  %li
+    View and amend your
+    = link_to "your account details", account_path
+    details.
+%h3 Please report problems
+%p
+  This is beta software, so please email details of any problems or issues that you
+  encounter to the project coordinator whose details you will find on the
+  = link_to "contact page", contact_path
+  \.
+%p
+  A discussion forum for
+  = proman
+  has also been established on the
+  %a{:href => "http://eg-353.ning.com/"} EG-353 Social Network
+  \.

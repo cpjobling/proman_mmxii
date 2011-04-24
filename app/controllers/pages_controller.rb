@@ -4,5 +4,17 @@ class PagesController < ApplicationController
 
   def about
   end
+  
+  def contact
+  end
+  
+  def help
+  end
+  
+  def tos
+  end
+  
+  def license
+  end
 
 end
