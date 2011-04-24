@@ -11,12 +11,14 @@ gem 'haml'
 group :development do
   gem 'rspec-rails'
   gem 'nifty-generators'
-  
+  gem 'cucumber-rails'
 end
 
 group :test do
   gem 'rspec'
   gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
   gem 'spork'
   gem 'mocha'
 end
