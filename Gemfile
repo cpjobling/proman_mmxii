@@ -1,24 +1,28 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '>= 3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'haml'
+gem 'haml', '>= 3.0.25'
+gem 'sass'
+gem 'rails3-generators'
+gem 'devise', '>=1.3.3' # Devise must be required before RailsAdmin
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'rspec-rails', '>= 2.5.0', :group => [:development, :test]
+gem 'jquery-rails', '>= 0.2.7'
 
 group :development do
-  gem 'rspec-rails'
   gem 'nifty-generators'
-  gem 'cucumber-rails'
 end
 
 group :test do
-  gem 'rspec'
-  gem 'capybara'
-  gem 'cucumber-rails'
-  gem 'database_cleaner'
+  gem 'factory_girl_rails', ">= 1.1.beta1"
+  gem 'cucumber-rails', ">= 0.4.1"
+  gem 'capybara', ">= 0.4.1.2"
+  gem 'database_cleaner', '>= 0.6.7'
   gem 'spork'
   gem 'mocha'
 end

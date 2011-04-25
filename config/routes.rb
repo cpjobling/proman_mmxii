@@ -1,4 +1,5 @@
 Proman2012::Application.routes.draw do
+
   match "about", :to => 'pages#about'
   match "help", :to => 'pages#help'
   match "contact", :to => 'pages#contact'
@@ -6,7 +7,17 @@ Proman2012::Application.routes.draw do
   match "license", :to => 'pages#license'
   match "home", :to => 'pages#home'
   
+  devise_for :users
+
+  resources :users, :only => :show
   resources :projects
+  
+  resource :user, :as => :account do
+    member do
+      get 'confirm'
+    end
+  end
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
