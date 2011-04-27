@@ -1,4 +1,4 @@
 Given /"(.*)" is an anonymous user/ do |name|
-  #visit '/logout'
+  visit '/users/signout'
 end
 

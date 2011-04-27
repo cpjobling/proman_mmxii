@@ -1,8 +1,9 @@
 Proman2012::Application.routes.draw do
 
+
   scope "(:locale)", :locale => /en|cy/ do
     match "about", :to => 'pages#about'
-    match "help", :to => 'pages#help'
+    match "help", :to => 'help#index'
     match "contact", :to => 'pages#contact'
     match "tos", :to => 'pages#tos'
     match "license", :to => 'pages#license'

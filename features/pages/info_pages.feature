@@ -1,37 +1,44 @@
+@pages
 Feature: Information pages
   In order to find out more about Proman
   As a user or visitor
   I want to be able to visit pages about Proman
   
-  Scenario: Visit the home page
+  Background:
     Given "chris" is an anonymous user
     When I go to the homepage
-    Then I should be on the home page
+  
+  Scenario: Visit the home page
+    Then I should be home
+    And the title should say "Welcome Proman"
   
   Scenario: Visit the about us page
-    Given "chris" is an anonymous user
-    When I go to the homepage
     And I follow "About"
     Then I should be on the about page
-    And I should see "About Proman" within "#header h2"
+    And the title should say "About Proman"
 
   Scenario: Visit the terms of service page
-    Given "chris" is an anonymous user
-    When I go to the homepage
     And I follow "Terms of Service"
     Then I should be on the terms of service page
-    And I should see "Terms of Service" within "#header h2"
+    And the title should say "Terms of Service"
       
   Scenario: Visit the contact us page
-    Given "chris" is an anonymous user
-    When I go to the contact us page
     And I follow "Contact us"
     Then I should be on the contact us page
-    And I should see "Contact Us" within "#header h2"
+    And the title should say "Contact Us"
       
   Scenario: Visit the software license page
-    Given "chris" is an anonymous user
-    When I go to the software license page
     And I follow "License"
     Then I should be on the software license page
-    And I should see "Apache License, Version 2.0" within "#header h2" 
+    And the title should say "Apache License, Version 2.0"
+    
+  Scenario: Visit the software license page
+    And I follow "Help"
+    Then I should be on the help page
+    And the title should say "Help"
+
+  Scenario: Return to the home page
+    And I follow "About"
+    And I follow "Home"
+    Then I should be home
+

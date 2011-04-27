@@ -45,6 +45,10 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /^(?:|I )am on the English (.+)$/ do |page_name|
+  visit "/en#{path_to(page_name)}"
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -184,12 +188,21 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label
   end
 end
  
+Then /^(?:|I )should be home$/ do 
+  current_path = URI.parse(current_url).path
+  if current_path.respond_to? :should
+    current_path.should == "/"
+  else
+    assert_equal "/", current_path
+  end
+end
+
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
-    current_path.should == path_to(page_name)
+    current_path.should == "/#{I18n.locale}#{path_to(page_name)}"
   else
-    assert_equal path_to(page_name), current_path
+    assert_equal "/#{I18n.locale}#{path_to(page_name)}", current_path
   end
 end
 

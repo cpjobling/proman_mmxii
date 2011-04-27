@@ -1,6 +1,10 @@
 cy:
-  pages:
-    home:
-      title: "Croeso i Proman"
-    about:
-      title: "Am Proman"
+  hello: "Helo byd"
+  site_name: "Proman 2012"
+  site_mission: "Rheoli Ymchwil a phrosiectau Traethawd Hir ers mis Mai 2009."
+  tos: "Thelerau Gwasanaeth"
+  license: "Apache License, Version 2.0"
+  contact: "Cysylltwch â Ni"
+  welcome: "Welcome to Proman"
+  about: "Am Proman"
+  help: "Help"

@@ -8,13 +8,13 @@ Background:
   Given "iwan" is an anonymous user
   And "iwan" is Welsh
 
-  Scenario: the Welsh home page should be in the Welsh locale ("cy")
-    Given I am on the home page
-    Then I should be on the home page
+  Scenario: the English home page should be in the Welsh locale ("cy")
+    Given I am on the cy_home page
+    Then Page should be Welsh home
     And I should see "Croeso i Proman"
 
-  Scenario: there should be a Welsh "About us" page
-    Given I am on the the about page
-    Then I should be on the about page
-    And I should see "Am Proman"
-
+    
+  Scenario: there should be an Welsh "About us" page
+    Given I am on the cy_about page
+    Then Page should be Welsh about
+    And I should see "Am Proman" 

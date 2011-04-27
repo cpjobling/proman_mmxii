@@ -32,6 +32,7 @@ group :test do
   gem 'database_cleaner', '>= 0.6.7'
   gem 'spork', '0.9.0.rc4'
   gem 'mocha'
+  gem 'launchy'
 end
 
 # Use unicorn as the web server

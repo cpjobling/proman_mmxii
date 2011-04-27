@@ -10,15 +10,15 @@ Feature: I18n and L10n
       
   Scenario: the default locale is English
     Given I am on the home page
-    Then I should be on the home page
+    Then I should be home
     And I should see "Welcome to Proman"
     
   Scenario: the English home page should be in the English locale ("en")
-    Given I am on the home page
-    Then I should be on the home page
+    Given I am on the en_home page
+    Then Page should be English home
     And I should see "Welcome to Proman"
     
   Scenario: there should be an English "About us" page
-    Given I am on the about page
-    Then I should be on the about page
+    Given I am on the en_about page
+    Then Page should be English about
     And I should see "About Proman"   

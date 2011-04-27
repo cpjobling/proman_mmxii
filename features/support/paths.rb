@@ -15,32 +15,44 @@ module NavigationHelpers
     case page_name
 
     when /the home\s?page/i
-      home_path
+      root_path
+
+    when /the en_home page/
+      '/en/home'
+
+    when /the en_about page/
+      '/en/about'
+
+    when /the cy_home page/
+      '/cy/home'
+
+    when /the cy_about page/
+      '/cy/about'
       
-    when /the about page/
+    when /about/
       about_path
       
+    when /home/
+      home_path
+
     when /the terms of service page/
       tos_path
-      
+
     when /the software license page/
       license_path
-      
+
     when /the contact us page/
       contact_path
-      
+
     when /the registration form/i
       new_account_path
-
-    when /the account page/i
-      account_path
 
     when /the confirm page with bad token/
       confirm_account_path
 
-    when /the login page/
-      login_path
-      
+    when /the sign in page/
+      sign_in_path
+
     when /the reset password page/
       new_password_reset_path
 
@@ -57,7 +69,8 @@ module NavigationHelpers
       begin
         page_name =~ /the (.*) page/
         path_components = $1.split(/\s+/)
-        self.send(path_components.push('path').join('_').to_sym)
+        path = path_components.push('path').join('_').to_sym
+        self.send(path)
       rescue Object => e
         raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
           "Now, go and add a mapping in #{__FILE__}"
