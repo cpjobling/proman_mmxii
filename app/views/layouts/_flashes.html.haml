@@ -1,0 +1,5 @@
+#flash
+  - flash.each do |name, message|
+    -if message.is_a?(String)
+      %div{ :title => name.to_s.humanize, :class => name }
+        %p= message

@@ -1,20 +1,22 @@
 Proman2012::Application.routes.draw do
 
-  match "about", :to => 'pages#about'
-  match "help", :to => 'pages#help'
-  match "contact", :to => 'pages#contact'
-  match "tos", :to => 'pages#tos'
-  match "license", :to => 'pages#license'
-  match "home", :to => 'pages#home'
+  scope "(:locale)", :locale => /en|cy/ do
+    match "about", :to => 'pages#about'
+    match "help", :to => 'pages#help'
+    match "contact", :to => 'pages#contact'
+    match "tos", :to => 'pages#tos'
+    match "license", :to => 'pages#license'
+    match "home", :to => 'pages#home'
   
-  devise_for :users
+    devise_for :users
 
-  resources :users, :only => :show
-  resources :projects
+    resources :users, :only => :show
+    resources :projects
   
-  resource :user, :as => :account do
-    member do
-      get 'confirm'
+    resource :user, :as => :account do
+      member do
+        get 'confirm'
+      end
     end
   end
   

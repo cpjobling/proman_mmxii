@@ -2,6 +2,13 @@ require 'rubygems'
 require 'spork'
 require 'capybara/rspec'
 
+
+module I18n
+  def just_taise_that_exception(*args)
+    raise args.first
+  end
+end
+
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you' ll
@@ -40,8 +47,14 @@ Spork.prefork do
     # Emulate initializer set_clear_dependencies_hook in
     # railties/lib/rails/application/bootstrap. rb
     ActiveSupport::Dependencies.clear
+    
+    # Raise exception for translation missing errors
+    I18n.exception_handler = :just_raise_that_exception
   end
 end
 
 Spork.each_run do
 end
+
+
+

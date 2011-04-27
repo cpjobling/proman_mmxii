@@ -1,0 +1,11 @@
+%p
+  %em= yield :slogan
+%small.copyright
+  %p{:style => "font-size: xx-small; text-align: center;"}
+    = render 'shared/copyright_notice'
+    |
+    = link_to t('tos'), tos_path 
+    |
+    = link_to t('contact'), contact_path
+    |
+    = link_to t('license'), license_path

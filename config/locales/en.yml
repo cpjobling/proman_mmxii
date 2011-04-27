@@ -3,3 +3,13 @@
 
 en:
   hello: "Hello world"
+  site_name: "Proman"
+  site_mission: "Managing Research and Dissertation projects since May 2009"
+  tos: "Terms of Service"
+  license: "Software License"
+  contact: "Contact Us"
+  pages:
+    home:
+      title: "Welcome to Proman"
+    about:
+      title: "About Proman"

@@ -60,12 +60,22 @@ a {
   .error_messages ul {
     margin: 0; }
     
-ul.hmenu {
+#navigation ul.hmenu {
   list-style: none;	
   margin: 0 0 2em;
   padding: 0;
 }
 
-ul.hmenu li {
+#navigation ul.hmenu li {
+  display: inline;  
+}
+
+nav#tabs ul.hmenu {
+  list-style: none;	
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+nav#tabs ul.hmenu li {
   display: inline;  
 }

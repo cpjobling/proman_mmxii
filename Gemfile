@@ -13,9 +13,16 @@ gem 'devise', '>=1.3.3' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'rspec-rails', '>= 2.5.0', :group => [:development, :test]
 gem 'jquery-rails', '>= 0.2.7'
+#gem 'tabs_on_rails'
+gem "compass", ">= 0.11.0"
+gem 'html5-boilerplate'
+gem 'routing-filter'
+
+
 
 group :development do
   gem 'nifty-generators'
+  gem 'annotate-models'
 end
 
 group :test do
@@ -23,7 +30,7 @@ group :test do
   gem 'cucumber-rails', ">= 0.4.1"
   gem 'capybara', ">= 0.4.1.2"
   gem 'database_cleaner', '>= 0.6.7'
-  gem 'spork'
+  gem 'spork', '0.9.0.rc4'
   gem 'mocha'
 end
 

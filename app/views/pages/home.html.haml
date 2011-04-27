@@ -1,4 +1,4 @@
-- title t('title')
+- title "Welcome to Proman"
 
 - slogan(quotation_generator("If I have seen further it is by standing on the shoulders of giants", :author => "Sir Isaac Newton", :born => 1642, :died => 1727))
 
@@ -7,8 +7,8 @@
 
 - content_for :sidebar do
   =proman
-  needs your help to get much needed translations.
-  So fork away and send those pull requests.
+  A Welsh translation of this software is needed. Please contact Chris Jobling  
+  (C.P.Jobling@Swansea.ac.uk) if you can help.
 
 %p
   = proman
@@ -41,3 +41,9 @@
   has also been established on the
   %a{:href => "http://eg-353.ning.com/"} EG-353 Social Network
   \.
+  
+%h2 Users
+- @users.each do |user|
+  %p
+    User: 
+    = user.name

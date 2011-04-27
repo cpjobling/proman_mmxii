@@ -1,0 +1,6 @@
+cy:
+  pages:
+    home:
+      title: "Croeso i Proman"
+    about:
+      title: "Am Proman"
