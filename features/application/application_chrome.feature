@@ -1,3 +1,4 @@
+@chrome
 Feature: Application chrome
   In order for Proman to be easy to use and navigate
   As a user
@@ -14,10 +15,10 @@ Feature: Application chrome
     Then I should see "Welcome to Proman" within "#header h2"
 
   Scenario: header has a navigation menu
-    Then I should see "Register" within "#navigation"
+    Then I should see "Login" within "nav#user"
 
   Scenario: header has a navset menu
-    Then I should see "Home" within "#navset"
+    Then I should see "Home" within "nav#tabs"
   
   Scenario: footer contains a slogan
     Then I should see "If I have seen further"
