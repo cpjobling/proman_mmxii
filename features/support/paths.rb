@@ -44,14 +44,14 @@ module NavigationHelpers
     when /the contact us page/
       contact_path
 
-    when /the registration form/i
-      new_account_path
-
     when /the confirm page with bad token/
       confirm_account_path
 
     when /the sign in page/
-      sign_in_path
+      new_user_session_path
+
+    when /the registration page/
+      new_user_registration_path
 
     when /the reset password page/
       new_password_reset_path

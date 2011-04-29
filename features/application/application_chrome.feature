@@ -6,16 +6,20 @@ Feature: Application chrome
 
   Background:
     Given "hector" is an anonymous user
+    And "hector" is English
     When I go to the homepage
       
   Scenario: header should have a logo
     Then I should see the site logo
 
   Scenario: header should hold the page title
-    Then I should see "Welcome to Proman" within "#header h2"
+    Then the title should say "Welcome to Proman"
 
-  Scenario: header has a navigation menu
-    Then I should see "Login" within "nav#user"
+  Scenario: header has "Sign in" in navigation menu
+    Then I should see "Sign in" within "nav#user"
+
+  Scenario: header has "Register" in navigation menu
+    Then I should see "Register" within "nav#user"
 
   Scenario: header has a navset menu
     Then I should see "Home" within "nav#tabs"

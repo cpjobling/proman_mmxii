@@ -6,10 +6,6 @@ Given /^"([^"]*)" is Welsh$/ do |name|
   I18n.locale = 'cy' 
 end
     
-Then /^the title should say '[^'](.+)'$/ do |title|
-  page.should have_selector("header#header h2", :text => title)
-end
-
 Then /^Page should be (English|Welsh) (.+)$/ do |language,page_name|
   locale = case language
   when /Welsh/

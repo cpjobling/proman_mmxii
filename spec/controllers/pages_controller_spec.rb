@@ -28,15 +28,6 @@ describe PagesController do
     
   end
   
-  describe "GET 'help'" do
-    it "should be successful" do
-      get 'help'
-      response.should be_success
-      response.should render_template('pages/help')
-    end
-    
-  end
-  
   describe "GET 'tos'" do
     it "should be successful" do
       get 'tos'

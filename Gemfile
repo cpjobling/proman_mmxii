@@ -17,6 +17,9 @@ gem 'jquery-rails', '>= 0.2.7'
 gem "compass", ">= 0.11.0"
 gem 'html5-boilerplate'
 gem 'routing-filter'
+gem 'syntax'
+gem 'redis'
+gem 'formtastic'
 
 
 

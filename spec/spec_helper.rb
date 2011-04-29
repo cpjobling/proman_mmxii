@@ -1,7 +1,5 @@
 require 'rubygems'
 require 'spork'
-require 'capybara/rspec'
-
 
 module I18n
   def just_taise_that_exception(*args)
@@ -17,10 +15,6 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   
-  # Add this to load Capybara integration:
-  require 'capybara/rspec'
-  require 'capybara/rails'
-
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}

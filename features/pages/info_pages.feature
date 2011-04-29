@@ -10,7 +10,7 @@ Feature: Information pages
   
   Scenario: Visit the home page
     Then I should be home
-    And the title should say "Welcome Proman"
+    And the title should say "Welcome to Proman"
   
   Scenario: Visit the about us page
     And I follow "About"

@@ -13,7 +13,6 @@ Background:
     Then Page should be Welsh home
     And I should see "Croeso i Proman"
 
-    
   Scenario: there should be an Welsh "About us" page
     Given I am on the cy_about page
     Then Page should be Welsh about
