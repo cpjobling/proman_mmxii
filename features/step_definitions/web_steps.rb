@@ -191,9 +191,9 @@ end
 Then /^(?:|I )should be home$/ do 
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
-    current_path.should == "/"
+    current_path.should =~ /(\/|\/en\/home|\/home)/
   else
-    assert_equal "/", current_path
+    assert_matches /(\/|\/home|\/en\/home)/, current_path
   end
 end
 

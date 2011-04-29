@@ -51,4 +51,12 @@ module ApplicationHelper
     content_for(:slogan) { page_slogan }
   end
   
+  def user_name
+    if user_signed_in?
+      return current_user.known_as || current_user.user_name
+    else
+      return "Guest"
+    end
+  end
+  
 end

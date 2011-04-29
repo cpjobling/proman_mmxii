@@ -8,6 +8,9 @@ Feature: Application chrome
     Given "hector" is an anonymous user
     And "hector" is English
     When I go to the homepage
+    
+  Scenario: I should be a guest user
+    The I should see "Guest"
       
   Scenario: header should have a logo
     Then I should see the site logo
@@ -45,9 +48,10 @@ Feature: Application chrome
   Scenario: copyright notice has a link to Swansea University
     Then I should see "Swansea University" within "#footer p a" 
     
-  Scenario: side bar contains sidebar items
-    Then I should see /^.+$/ within "#sidebar h3"
-    And I should see /^.+/ within "#sidebar p"
+  Scenario: sidebar contains sidebar items
+    Then the sidebar should be an aside 
+    And the sidebar should have a heading
+    And the sidebar should have some content
     
 
   

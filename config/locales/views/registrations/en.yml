@@ -1,0 +1,8 @@
+en:
+  registrations:
+    new:
+      title: "Register to use Proman"
+      submit: "Register"
+    edit:
+      title: "Edit profile"
+      submit: "Update"

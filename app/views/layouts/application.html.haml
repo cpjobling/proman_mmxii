@@ -16,9 +16,10 @@
       %footer#footer
         = render "layouts/footer"
         
-      #sidebar
+      %aside#sidebar
         .block
-          %h3= yield :title_sidebar
+          %header
+            %h1= yield :sidebar_title
           .content
             %p= yield :sidebar
       #extra

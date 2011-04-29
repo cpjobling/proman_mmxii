@@ -26,7 +26,6 @@
 #  initials               :string(255)
 #  last_name              :string(255)
 #  known_as               :string(255)
-#  terms                  :boolean
 #
 
 class User < ActiveRecord::Base
@@ -43,17 +42,18 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :case_sensitive => false
   validates_format_of :email, :with => /\A.+@(swan|abertawe|swansea)\.ac\.uk\z/, :message => "Email is invalid: must be a Swansea University email address."
   
-  def user_name
-    user_name =  read_attribute(:user_name)
-    if user_name.nil?
-      user_name = email.split('@').first.downcase
-      write_attribute(:user_name, user_name)
-    end
-    user_name
+  def email=(email)
+    write_attribute(:email, email)
+    user_name = email.split('@').first.downcase
+    write_attribute(:user_name, user_name)
   end
   
-  def user_name=(user_name)
-    # Read-only: does nothing!
+  def email
+    read_attribute(:email)
+  end
+  
+  def user_name
+    read_attribute(:user_name)
   end
   
   # Return true if the user's password is valid

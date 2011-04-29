@@ -9,4 +9,7 @@ doc/app
 *.swp
 *~
 .DS_Store
+html_report
+public/features_report.html
+
 

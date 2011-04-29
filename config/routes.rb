@@ -9,7 +9,7 @@ Proman2012::Application.routes.draw do
     match "license", :to => 'pages#license'
     match "home", :to => 'pages#home'
   
-    devise_for :users do
+    devise_for :users, :controllers => { :registrations => "registrations" } do
       get "/login", :to => "devise/sessions#new"
       get "/logout", :to => "devise/sessions#destroy"
     end
@@ -17,11 +17,11 @@ Proman2012::Application.routes.draw do
     resources :users, :only => :show
     resources :projects
   
-    resource :user, :as => :account do
-      member do
-        get 'confirm'
-      end
-    end
+    #resource :user, :as => :account do
+    #  member do
+    #    get 'confirm'
+    #  end
+    #end
   end
   
 

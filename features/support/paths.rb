@@ -45,7 +45,7 @@ module NavigationHelpers
       contact_path
 
     when /the confirm page with bad token/
-      confirm_account_path
+      new_user_confirmation_path
 
     when /the sign in page/
       new_user_session_path
@@ -58,7 +58,10 @@ module NavigationHelpers
 
     when /the change password form with bad token/
       edit_password_reset_path
-
+      
+    when /my profile page/
+      edit_user_registration_path
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

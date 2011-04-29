@@ -9,7 +9,9 @@ require 'spork'
  
 Spork.prefork do
   require 'cucumber/rails'
-
+  # Make sure this require is after you require cucumber/rails/world.
+  require 'email_spec' # add this line if you use spork
+  require 'email_spec/cucumber'
 
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd

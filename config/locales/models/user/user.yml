@@ -1,0 +1,66 @@
+en:
+  activerecord:
+    models: 
+      user: 'Account'
+    attributes: 
+      user: 
+        #  id                     :integer         not null, primary key
+        #  email                  :string(255)     default(""), not null
+        #  encrypted_password     :string(128)     default(""), not null
+        #  reset_password_token   :string(255)
+        #  reset_password_sent_at :datetime
+        #  remember_created_at    :datetime
+        #  sign_in_count          :integer         default(0)
+        #  current_sign_in_at     :datetime
+        #  last_sign_in_at        :datetime
+        #  current_sign_in_ip     :string(255)
+        #  last_sign_in_ip        :string(255)
+        #  confirmation_token     :string(255)
+        #  confirmed_at           :datetime
+        #  confirmation_sent_at   :datetime
+        #  authentication_token   :string(255)
+        #  created_at             :datetime
+        #  updated_at             :datetime
+        #  user_name              :string(255)
+        #  title                  :string(255)
+        #  first_name             :string(255)
+        #  initials               :string(255)
+        #  last_name              :string(255)
+        #  known_as               :string(255)
+        #  terms                  :boolean        
+        user_name: 'User name'
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Confirmation'
+        reset_password_sent_at: 'Password reset sent at'
+        remember_created_at: 'Remembered since'
+        last_signin_at: 'Last signed in at'
+        current_sign_in_at: 'Signed in at'
+        last_sign_in_ip: 'Last signed in from'
+        current_sign_in_ip: 'Currently signed in from'
+        confirmed_at: 'Account confirmed at'
+        confirmation_sent_at: 'Account confirmation email sent at'
+        created_at: 'Created at'
+        updated_at: 'Updated at'
+        confirmation_token: 
+        sign_in_count: 'Signed in {{sign_in_count}} times'
+        title: 'Title'
+        first_name: 'First (given) name'
+        last_name: 'Last (family) name'
+        initials: 'Initials'
+        known_as: 'I prefer to be known as'
+        staff_or_student_number: 'Staff or student number'
+        titles:
+          mr: 'Mr'
+          miss: 'Miss'
+          mrs: 'Mrs'
+          ms: 'Ms'
+          dr: 'Dr'
+          prof: 'Prof.'
+    errors:
+      models:
+        user:
+          attributes:
+            staff_or_student_number:
+              invalid: 'Invalid format: staff or student number should be 6 or more digits'
+

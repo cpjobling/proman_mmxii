@@ -36,6 +36,7 @@ group :test do
   gem 'spork', '0.9.0.rc4'
   gem 'mocha'
   gem 'launchy'
+  gem 'email_spec'
 end
 
 # Use unicorn as the web server

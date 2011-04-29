@@ -32,7 +32,7 @@ Feature: Information pages
     Then I should be on the software license page
     And the title should say "Apache License, Version 2.0"
     
-  Scenario: Visit the software license page
+  Scenario: Visit the help page
     And I follow "Help"
     Then I should be on the help page
     And the title should say "Help"

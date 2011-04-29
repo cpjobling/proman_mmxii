@@ -1,12 +1,15 @@
-<li>
-  <%= link_to('Home', root_path) %>
-</li>
 <% if user_signed_in? %>
-  &nbsp;|&nbsp;<li>
-  <%= link_to('My account', edit_user_registration_path) %>
+  <li>
+    <%= current_user.known_as || current_user.user_name %>
+  </li>
+  <li>
+    <%= link_to('My account', edit_user_registration_path) %>
   </li>
 <% else %>
-  &nbsp;|&nbsp;<li>
+  <li>
+    Guest
+  </li>
+  <li>
   <%= link_to('Register', new_user_registration_path)  %>
   </li>
 <% end %>

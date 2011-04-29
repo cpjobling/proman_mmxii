@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20110428105300) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "",    :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20110428105300) do
     t.string   "initials"
     t.string   "last_name"
     t.string   "known_as"
-    t.boolean  "terms_of_service",                      :default => false
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
