@@ -9,46 +9,39 @@ Feature: Authentication
     When I go to the sign in page
     Then I should see a sign in form
 
-  Scenario: Redirect to account page when user is signed in
-    Given "hector" a signed in user with email "hector@test.com"
-    When I go to the sign in page
-    Then I should be signed in
-
   Scenario: Allow sign in of a user with valid credentials
     Given "hector" a confirmed user with password "supersecret"
     When I go to the sign in page
-    And I fill in "sign in" with "hector"
-    And I fill in "password" with "supersecret"
-    And I press "sign in"
-    Then I should be signed in
+    And I fill in "Email" with "hector@swansea.ac.uk"
+    And I fill in "Password" with "supersecret"
+    And I press "Sign in"
+    And I should be signed in
  
   Scenario Outline: Not allow sign in of a user with bad credentials
     Given "hector" a confirmed user with password "secret"
     When I go to the sign in page
-    And I fill in "sign in" with "<sign in>"
-    And I fill in "password" with "<password>"
-    And I press "sign in"
+    And I fill in "Email" with "<email>"
+    And I fill in "Password" with "<password>"
+    And I press "Sign in"
     Then I should not be signed in
 
   Examples:
-      | sign in   |    password    |
-      | hector  |    badsecret   |
-      | hector  |                |
-      | unknown |     secret     |
-      | unknown |    badsecret   |
-      | unknown |                |
-      |         |                |
-      |         |     secret     |
-      |         |    badsecret   |
+      | email                |    password    |
+      | hector@swansea.ac.uk |    badsecret   |
+      | hector@swansea.ac.uk |                |
+      | unknown@gmail.com    |     secret     |
+      | unknown@gmail.com    |    badsecret   |
+      | unknown@gmail.com    |                |
 
   Scenario: Not allow sign in of an unconfirmed user
     Given "hector" an unconfirmed user with password "secret"
     When I go to the sign in page
-    And I fill in "sign in" with "hector"
-    And I fill in "password" with "secret"
-    And I press "sign in"
-    Then I should not be signed in
-    And I should see "not confirmed"
+    And I fill in "Email" with "hector@swansea.ac.uk"
+    And I fill in "Password" with "secret"
+    And I press "Sign in"
+    Then I should see "You have to confirm your account before continuing"
+    And I should be on the sign in page
+    And I should not be signed in
     
   Scenario: User is not signed up
     Given I am not signed in

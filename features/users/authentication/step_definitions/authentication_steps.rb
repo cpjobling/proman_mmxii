@@ -29,6 +29,14 @@ Then /^I should be already signed in$/ do
   And %{I should see "Sign out"}
 end
 
+Then /^I should not be signed in$/ do
+  page.within("nav#user") do
+    page.should have_content("Sign in")
+    page.should have_content("Guest")
+  end
+end
+
+
 Given /^I am signed up as "(.*)\/(.*)"$/ do |email, password|
   Given %{I am not signed in}
   When %{I go to the sign in page}
