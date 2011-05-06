@@ -36,6 +36,7 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
+    addressable (2.2.5)
     annotate-models (1.0.4)
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
@@ -75,10 +76,14 @@ GEM
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     diff-lcs (1.1.2)
+    em-websocket (0.2.1)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
     email_spec (1.1.1)
       rspec (~> 2.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    eventmachine (0.12.10)
     factory_girl (2.0.0.beta2)
     factory_girl_rails (1.1.beta1)
       factory_girl (~> 2.0.0.beta)
@@ -92,6 +97,21 @@ GEM
     fssm (0.2.7)
     gherkin (2.3.6)
       json (>= 1.4.6)
+    growl (1.0.3)
+    guard (0.3.4)
+      thor (~> 0.14.6)
+    guard-cucumber (0.3.0)
+      cucumber (~> 0.10.0)
+      guard (~> 0.3.0)
+    guard-livereload (0.1.10)
+      em-websocket (~> 0.2.0)
+      guard (>= 0.2.2)
+      json (~> 1.5.1)
+    guard-rspec (0.3.1)
+      guard (>= 0.2.2)
+    guard-spork (0.1.10)
+      guard (>= 0.2.2)
+      spork (>= 0.8.4)
     haml (3.1.1)
     html5-boilerplate (0.3.3)
       compass (>= 0.10.0)
@@ -136,6 +156,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rb-fsevent (0.4.0)
     redis (2.2.0)
     routing-filter (0.2.3)
       actionpack
@@ -185,6 +206,12 @@ DEPENDENCIES
   email_spec
   factory_girl_rails (>= 1.1.beta1)
   formtastic
+  growl
+  guard
+  guard-cucumber
+  guard-livereload
+  guard-rspec
+  guard-spork
   haml (>= 3.0.25)
   html5-boilerplate
   jquery-rails (>= 0.2.7)
@@ -194,6 +221,7 @@ DEPENDENCIES
   rails (>= 3.0.7)
   rails3-generators
   rails_admin!
+  rb-fsevent
   redis
   routing-filter
   rspec-rails (>= 2.5.0)

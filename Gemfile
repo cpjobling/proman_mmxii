@@ -37,6 +37,13 @@ group :test do
   gem 'mocha'
   gem 'launchy'
   gem 'email_spec'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-spork'
+  gem 'guard-livereload'
+  gem 'growl'
 end
 
 # Use unicorn as the web server
