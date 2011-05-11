@@ -3,7 +3,7 @@ Given /^no user exists with an email of "(.*)"$/ do |email|
 end
 
 Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  user = User.new(:name => name,
+  user = User.new(
             :email => email,
             :password => password,
             :password_confirmation => password,
@@ -14,8 +14,8 @@ Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*
 end
 
 Given /^I am a new, authenticated user$/ do
-  email = 'testing@man.net'
-  login = 'Testing man'
+  email = 'testing@mswansea.ac.uk'
+  user_name = 'testing'
   password = 'secretpass'
   
   Given %{I have one user "#{email}" with password "#{password}"}
@@ -87,7 +87,8 @@ When /^I check the "([^"]*)" checkbox$/ do |arg1|
 end
 
 When /^I return some\-time later$/ do
-  pending # express the regexp above with the code you wish you had
+  user_session = nil
+  visit('/home')
 end
 
 Then /^I should see a sign in form$/ do

@@ -1,3 +1,4 @@
+@password_reset
 Feature: Password Reset
   As a user that forgot his password
   I want to reset my password
@@ -5,12 +6,12 @@ Feature: Password Reset
 
   Scenario: Display a reset password form
     Given "hector" is an anonymous user
-    When I go to the reset password page
+    When I ask to reset my password
     Then I should see a reset password form
 
   Scenario: Send a reset instructions email if given a valid email
     Given "hector" a confirmed user
-    When I go to the reset password page
+    When I ask to reset my password
     And I fill in "email" with "hector@mail.com"
     And I press "Reset Password"
     Then I receive an email
@@ -19,7 +20,7 @@ Feature: Password Reset
 
   Scenario: Do not send a reset instructions email if given an invalid email
     Given "hector" a confirmed user
-    When I go to the reset password page
+    When I ask to reset my password
     And I fill in "email" with "unknown@mail.com"
     And I press "Reset Password"
     Then "hector@mail.com" should receive no email

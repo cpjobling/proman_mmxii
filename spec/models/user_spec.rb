@@ -45,28 +45,22 @@ describe User do
   
   describe "user name" do
     before(:each) do
-      user = User.new(@attr)
+      @user = User.new(@attr)
+      @user.save!
     end
     
     it "should have a user name" do
-      user = User.new(@attr)
-      user.user_name.should == "c.p.jobling"
+      @user.user_name.should == "c.p.jobling"
     end
   
     it "should have a user name that is the email address without the domain" do
-      user = User.new(@attr)
-      user.user_name.should == @attr[:email].split('@').first.downcase
+      @user.user_name.should == @attr[:email].split('@').first.downcase
     end
   
     it "should have a readonly user name" do
-      user = User.create!(@attr)
-      user.user_name = 'another_name'
-      user.user_name.should == "c.p.jobling"
-    end
-    
-    it "should persist the user name in the database" do
-      user = User.create!(@attr)
-      user.user_name.should == "c.p.jobling"
+      @user.user_name = 'another_name'
+      @user.save!
+      @user.user_name.should == "c.p.jobling"
     end
   end
   
@@ -194,4 +188,15 @@ describe User do
       matching_user.should == @user
     end
   end
+  
+  describe "email attribute" do
+    it "should be readonly" do
+      user = User.create!(@attr)
+      user.email = "another@swansea.ac.uk"
+      user.save!
+      user.reload
+      user.email.should == @attr[:email]
+    end
+  end
+    
 end

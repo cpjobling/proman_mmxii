@@ -29,6 +29,9 @@
 #
 
 class User < ActiveRecord::Base
+  
+  before_save :generate_user_name
+  
   # Include default devise modules. Others available are:
   # :encryptable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -37,24 +40,13 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
     :first_name, :last_name, :title, :initials, :known_as
+    
+  attr_protected :user_name
+  attr_readonly :email
   
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, :case_sensitive => false
   validates_format_of :email, :with => /\A.+@(swan|abertawe|swansea)\.ac\.uk\z/, :message => "Email is invalid: must be a Swansea University email address."
-  
-  def email=(email)
-    write_attribute(:email, email)
-    user_name = email.split('@').first.downcase
-    write_attribute(:user_name, user_name)
-  end
-  
-  def email
-    read_attribute(:email)
-  end
-  
-  def user_name
-    read_attribute(:user_name)
-  end
   
   # Return true if the user's password is valid
   def has_password?(submitted_password)
@@ -67,4 +59,11 @@ class User < ActiveRecord::Base
     return nil if user.nil?
     return user if user.has_password?(submitted_password)
   end
+  
+  protected
+    def generate_user_name
+       user_name = email.split('@').first.downcase
+       write_attribute(:user_name, user_name)
+    end
+      
 end

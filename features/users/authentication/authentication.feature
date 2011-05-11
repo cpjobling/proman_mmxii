@@ -54,18 +54,18 @@ Feature: Authentication
 
   Scenario: User enters wrong password
     Given I am not signed in
-    And I am a user named "foo" with an email "user@test.com" and password "please"
+    And I am a user named "foo" with an email "user@swansea.ac.uk" and password "please"
     When I go to the sign in page
-    And I sign in as "user@test.com/wrongpassword"
+    And I sign in as "user@swansea.ac.uk/wrongpassword"
     Then I should see "Invalid email or password."
     And I go to the home page
     And I should be signed out
 
   Scenario: User signs in successfully with email
     Given I am not signed in
-    And I am a user named "foo" with an email "user@test.com" and password "please"
+    And I am a user named "foo" with an email "user@swansea.ac.uk" and password "please"
     When I go to the sign in page
-    And I sign in as "user@test.com/please"
+    And I sign in as "user@swansea.ac.uk/please"
     Then I should see "Signed in successfully."
     And I should be signed in
     When I return next time
@@ -73,10 +73,10 @@ Feature: Authentication
     
   Scenario: User is remembered
     Given I am not signed in
-    And I am a user named "foo" with an email "user@test.com" and password "please"
+    And I am a user named "foo" with an email "user@swansea.ac.uk" and password "please"
     When I go to the sign in page
-    And I sign in as "user@test.com/please"
-    And I check the "remember me" checkbox
+    And I check "Remember me"
+    And I sign in as "user@swansea.ac.uk/please"
     Then I should see "Signed in successfully."
     And I should be signed in
     When I return some-time later
