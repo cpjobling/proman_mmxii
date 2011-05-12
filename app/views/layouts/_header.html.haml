@@ -1,15 +1,5 @@
-%nav#user
-  %ul.hmenu
-    = render 'devise/menu/registration_items'
-    = render 'devise/menu/login_items'
-%h1= proman
+%h1
+  %a{:href => "/"} 
+    %span.proman 
+      = proman
 %h2= yield(:title)
-%nav#tabs
-  %ul.hmenu
-    %li= link_to "Home", home_path
-    %li Projects 
-    %li= link_to "Contact us", contact_path
-    %li= link_to "About", about_path
-    %li= link_to "Help", help_path
-    -#= navigation [:home, :projects, :contact, :about, :help]
-    -#= yield(:subnav)

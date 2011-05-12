@@ -19,13 +19,13 @@ Feature: Application chrome
     Then the title should say "Welcome to Proman"
 
   Scenario: header has "Sign in" in navigation menu
-    Then I should see "Sign in" within "nav#user"
+    Then I should see "Sign in" within "nav#main-navigation"
 
   Scenario: header has "Register" in navigation menu
-    Then I should see "Register" within "nav#user"
+    Then I should see "Register" within "nav#main-navigation"
 
   Scenario: header has a navset menu
-    Then I should see "Home" within "nav#tabs"
+    Then I should see "Home" within "nav#main-navigation"
   
   Scenario: footer contains a slogan
     Then I should see "If I have seen further"

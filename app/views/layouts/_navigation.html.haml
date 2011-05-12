@@ -1,0 +1,23 @@
+%nav#main-navigation
+  %ul.clearfix
+    = render 'devise/menu/registration_items'
+    = render 'devise/menu/login_items'
+    %li.right
+      = link_to t("app-themer.help", :default => "Help"), help_path
+    %li.right
+      = link_to t("app-themer.contact", :default => "Contact us"), contact_path
+    %li.right
+      %a{:href => "#"}= t("app-themer.settings", :default => "Settings")
+    %li.right
+      %a{:href => "#"}= t("app-themer.profile", :default => "Profile")
+    %li.right
+      Projects
+    %li.right
+      = link_to t("app-themer.about", :default => "About Proman"), about_path
+    %li.right
+      = link_to t("Home", :default => "Home"), home_path
+
+
+
+    -#= navigation [:home, :projects, :contact, :about, :help]
+    -#= yield(:subnav)

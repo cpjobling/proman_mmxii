@@ -30,7 +30,7 @@ Then /^I should be already signed in$/ do
 end
 
 Then /^I should not be signed in$/ do
-  page.within("nav#user") do
+  page.within("nav#main-navigation") do
     page.should have_content("Sign in")
     page.should have_content("Guest")
   end

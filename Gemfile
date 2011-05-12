@@ -20,7 +20,8 @@ gem 'routing-filter'
 gem 'syntax'
 gem 'redis'
 gem 'formtastic'
-
+gem 'hpricot'
+gem 'ruby_parser'
 
 
 group :development do
@@ -46,6 +47,9 @@ group :test do
   gem 'growl'
 end
 
+group :development, :test do
+  gem 'app-themer'
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 

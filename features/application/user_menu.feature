@@ -9,7 +9,7 @@ Feature: User menu
     When I go to the homepage
 
   Scenario: I should be able to access my account
-    Then I should see "My account" within "nav#user"
+    Then I should see "My account" within "nav#main-navigation"
     When I follow "My account"
     Then I should be on my profile page
     
@@ -25,9 +25,9 @@ Feature: User menu
      And I fill in "Current password" with "secret"
      And I press "Update"
      Then I should be known as "Fred"
-     And I should see "Fred" within "nav#user"
+     And I should see "Fred" within "nav#main-navigation"
   
   Scenario: I should be able to sign out
-    Then I should see "Sign out" within "nav#user"
+    Then I should see "Sign out" within "nav#main-navigation"
     When I follow "Sign out"
     Then I should be signed out

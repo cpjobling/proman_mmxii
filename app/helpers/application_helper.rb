@@ -36,7 +36,7 @@ module ApplicationHelper
   
   # The Proman logo
   def proman
-    return "<em>Proman</em><sup>&beta;</sup><sub style=\"font-size: xx-small\">(XXMII)</sub>".html_safe
+    return "<em>Proman</em><sup>&beta;</sup><sub style=\"xx-small;\">(MMXII)</sub>".html_safe
   end
   
   # Title helper as described in RailsCast 30 (http://asciicasts.com/episodes/30-pretty-page-title)

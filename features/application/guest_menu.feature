@@ -10,15 +10,15 @@ Feature: Guest menu
     When I go to the homepage
     
   Scenario: I should be a guest user
-    Then I should see "Guest" within "nav#user"
+    Then I should see "Guest" within "nav#main-navigation"
 
   Scenario: I should be a guest user
-    Then I should see "Register" within "nav#user"
+    Then I should see "Register" within "nav#main-navigation"
     When I follow "Register"
     Then I should be on the registration page
 
   Scenario: I should be a guest user
-    Then I should see "Sign in" within "nav#user"
+    Then I should see "Sign in" within "nav#main-navigation"
     When I follow "Sign in"
     Then I should be on the sign in page
 

@@ -70,12 +70,12 @@ a {
   display: inline;  
 }
 
-nav#tabs ul.hmenu {
+nav#main-navigation ul.hmenu {
   list-style: none;	
   margin: 0 0 2em;
   padding: 0;
 }
 
-nav#tabs ul.hmenu li {
+nav#main-navigation ul.hmenu li {
   display: inline;  
 }
