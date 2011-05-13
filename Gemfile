@@ -11,7 +11,6 @@ gem 'sass'
 gem 'rails3-generators'
 gem 'devise', '>=1.3.3' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-gem 'rspec-rails', '>= 2.5.0', :group => [:development, :test]
 gem 'jquery-rails', '>= 0.2.7'
 #gem 'tabs_on_rails'
 gem "compass", ">= 0.11.0"
@@ -27,6 +26,11 @@ gem 'ruby_parser'
 group :development do
   gem 'nifty-generators'
   gem 'annotate-models'
+end
+
+group :development, :test do
+  gem 'app-themer'
+  gem 'rspec-rails', '>= 2.5.0'
 end
 
 group :test do
@@ -47,9 +51,6 @@ group :test do
   gem 'growl'
 end
 
-group :development, :test do
-  gem 'app-themer'
-end
 # Use unicorn as the web server
 # gem 'unicorn'
 

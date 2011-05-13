@@ -54,14 +54,14 @@ module NavigationHelpers
       new_user_registration_path
 
     when /the reset password page/
-      new_password_reset_path
+      new_user_password_path
 
     when /the change password form with bad token/
-      edit_password_reset_path
+      edit_user_password_path
       
     when /my profile page/
       edit_user_registration_path
-      
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

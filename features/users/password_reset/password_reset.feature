@@ -7,7 +7,11 @@ Feature: Password Reset
   Scenario: Display a reset password form
     Given "hector" is an anonymous user
     When I ask to reset my password
-    Then I should see a reset password form
+    Then I should be on the reset password page
+    And I should see "Forgot your password?"
+    And I should see a "user_new" form
+    And I should see "Email"
+    And there should be a "Send me reset password instructions" button
 
   Scenario: Send a reset instructions email if given a valid email
     Given "hector" a confirmed user
