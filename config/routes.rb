@@ -10,8 +10,8 @@ Proman2012::Application.routes.draw do
     match "home", :to => 'pages#home'
   
     devise_for :users, :controllers => { :registrations => "registrations" } do
-      get "/login", :to => "devise/sessions#new"
-      get "/logout", :to => "devise/sessions#destroy"
+      get "login", :to => "devise/sessions#new"
+      get "logout", :to => "devise/sessions#destroy"
     end
 
     resources :users, :only => :show

@@ -55,9 +55,15 @@ module NavigationHelpers
 
     when /the reset password page/
       new_user_password_path
+      
+    when /the password page/
+      user_password_path
+
+    when /the change password page/
+      edit_user_password_path
 
     when /the change password form with bad token/
-      edit_user_password_path
+      edit_user_password_path(:reset_password_token => 'invalid')
       
     when /my profile page/
       edit_user_registration_path
