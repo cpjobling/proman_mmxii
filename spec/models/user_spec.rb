@@ -198,5 +198,30 @@ describe User do
       user.email.should == @attr[:email]
     end
   end
+  
+  describe "full_name method" do
+    before(:each) do
+      @user = User.create!(@attr)
+      @user.confirm!
+    end
+    it "should return the user's full name plus last name by default" do
+      @user.full_name.should == @user.first_name + " " + @user.last_name
+    end
     
+    it "should include the user's title if it set" do
+      @user.title = 'Dr'
+      @user.full_name.should == 'Dr' + ' ' + @user.first_name + " " + @user.last_name
+    end
+    
+    it "should include the user's initials if set" do
+      @user.initials = 'T.'
+      @user.full_name.should ==  @user.first_name + " T. " + @user.last_name
+    end
+    
+    it "should be the complete name if all fields are present" do
+      @user.title = 'Dr'
+      @user.initials = 'T.'
+      @user.full_name.should ==  'Dr' + ' ' + @user.first_name + " T. " + @user.last_name
+    end
+  end
 end

@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
     return user if user.has_password?(submitted_password)
   end
   
+  def full_name
+    return [title, first_name, initials, last_name].join(' ').squeeze().strip()
+  end
+  
   protected
     def generate_user_name
        user_name = email.split('@').first.downcase

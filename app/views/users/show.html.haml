@@ -1,3 +1,4 @@
-%p 
-  User:
-  = @user.name
+- title "#{@user.full_name} aka #{@user.known_as}"
+
+%h3 
+  = "#{@user.full_name} (#{@user.email}) also known as: #{@user.known_as}"
