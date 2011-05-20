@@ -1,4 +1,29 @@
-- title "#{@user.full_name} aka #{@user.known_as}"
+- title "#{@user.full_name}"
 
-%h3 
-  = "#{@user.full_name} (#{@user.email}) also known as: #{@user.known_as}"
+- slogan(quotation_generator("Please allow me to introduce myself, I'm a man of wealth and taste", :author => "Mick Jagger and Keith Richards"))
+
+
+%table{:class=>"profile", :summary=>"Profile information"}
+  %tr
+    %td
+      %h2
+        = gravatar_for @user
+        = @user.full_name
+    %td{:class => "sidebar round"}
+      - if @user.known_as
+        %strong
+          Also known as:
+        = @user.known_as 
+        %br
+      %strong
+        Email: 
+      = mail_to @user.email
+      %br
+      %strong
+        URL:
+      = link_to user_path(@user), @user
+      
+-if @user == current_user
+  = link_to "Edit my account", edit_user_registration_path
+
+

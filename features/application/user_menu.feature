@@ -11,7 +11,7 @@ Feature: User menu
   Scenario: I should be able to access my account
     Then I should see "My account" within "nav#main-navigation"
     When I follow "My account"
-    Then I should be on my profile page
+    Then I should be on the profile page for hector@swansea.ac.uk
     
   Scenario: there should be a valid user record
     Then there should be a valid user record for "hector" a user with email "hector@swansea.ac.uk"
@@ -21,6 +21,7 @@ Feature: User menu
 
   Scenario: I should see my preferred name if I've set it
      When I follow "My account"
+     And I follow "Edit my account"
      And I fill in "I prefer to be known as" with "Fred"
      And I fill in "Current password" with "secret"
      And I press "Update"

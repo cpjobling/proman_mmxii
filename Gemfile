@@ -21,6 +21,7 @@ gem 'redis'
 gem 'formtastic'
 gem 'hpricot'
 gem 'ruby_parser'
+gem 'gravatar_image_tag'
 
 
 group :development do

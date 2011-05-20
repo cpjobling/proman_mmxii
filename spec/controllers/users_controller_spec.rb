@@ -6,7 +6,7 @@ describe UsersController do
   describe "GET 'show'" do
 
     before(:each) do
-      @user = Factory(:user)
+      @user = Factory(:user, :known_as => 'Fred')
       @user.confirm!
       sign_in @user
     end
@@ -35,21 +35,36 @@ describe UsersController do
       end
 
       it "should include the user's full name" do
-        page.should have_selector("h3", :content => @user.full_name)
+        page.should have_selector("h2", :content => @user.full_name)
       end
     
       it "should include the user's email" do
-        page.should have_selector("h3", :content => @user.email)
+        page.should have_selector("p", :content => @user.email)
       end
     
     
       it "should include the user's preferred name" do
-        page.should have_selector("h3", :content => @user.email)
+        page.should have_selector("p", :content => @user.known_as)
       end
 
       it "should have a profile image" do
-        page.should have_selector("h3>img", :class => "gravatar")
+        page.should have_selector("h2>img", :class => "gravatar")
       end
     end
   end
+  
+  describe "GET 'edit'" do
+
+      before(:each) do
+        @user = Factory(:user)
+        @user.confirm!
+        sign_in @user
+      end
+
+      it "should redirect" do
+        get :edit, :id => @user
+        response.should redirect_to(edit_user_registration_path)
+      end
+
+    end
 end

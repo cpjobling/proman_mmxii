@@ -14,7 +14,7 @@ Proman2012::Application.routes.draw do
       get "logout", :to => "devise/sessions#destroy"
     end
 
-    resources :users, :only => :show
+    resources :users, :only => [:show, :edit]
     resources :projects
   
     #resource :user, :as => :account do

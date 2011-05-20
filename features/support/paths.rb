@@ -64,9 +64,10 @@ module NavigationHelpers
 
     when /the change password form with bad token/
       edit_user_password_path(:reset_password_token => 'invalid')
+
+    when /^the profile page for (.*)$/
+      user_path(User.find_by_email($1),:locale=>'en')
       
-    when /my profile page/
-      edit_user_registration_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

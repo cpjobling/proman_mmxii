@@ -11,13 +11,16 @@ Feature: Profile Page
     And I follow "My account"
   
   Scenario: I should be able to edit my profile
-    When I fill in "I prefer to be known as" with "Chris"
+    When I follow "Edit my account"
+    And I fill in "I prefer to be known as" with "Chris"
     And I fill in "Current password" with "please"
     And I press "Update"
-    And I should see "You updated your account successfully."
+    Then I should see "You updated your account successfully."
     And I should see "Chris" within "nav#main-navigation"
+    And I should be on the profile page for c.p.jobling@swansea.ac.uk
     
   Scenario: I should see the correct fields
+    When I follow "Edit my account"
     Then the "Email" field should contain "c.p.jobling@swansea.ac.uk"
     And I should see a "password" field called "Password"
     And I should see a "password" field called "Confirmation"
@@ -32,7 +35,8 @@ Feature: Profile Page
     And I should see a link called "Back"
   
   Scenario: I should be able to change my name details
-    When I select "Dr" from "Title"
+    When I follow "Edit my account"
+    And I select "Dr" from "Title"
     And I fill in "First (given) name" with "Christopher"
     And I fill in "Initials" with "P."
     And I fill in "Last (family) name" with "Jobling"
@@ -43,27 +47,39 @@ Feature: Profile Page
     Then The user record for "c.p.jobling@swansea.ac.uk" should contain the name "Dr" "Christopher" "P." "Jobling" known as "Chris" 
           
   Scenario: I should not be able to change my user name
+    When I follow "Edit my account"
     Then I should not see "User name"
     And I should not see "user[user_name]"
   
   Scenario: I should be able to change my password
-    When I change my password from "please" to "newsecret"
+    When I follow "Edit my account"
+    And I change my password from "please" to "newsecret"
     Then I should see "You updated your account successfully."
     
   Scenario: I should be able to sign in with my new password
-    When I change my password from "please" to "newsecret"
+    When I follow "Edit my account"
+    And I change my password from "please" to "newsecret"
     And I sign out
     And I sign in as "c.p.jobling@swansea.ac.uk/newsecret"
     Then I should be signed in
 
   Scenario: I should not be able to sign in with my old password
-    When I change my password from "please" to "newsecret"
+    When I follow "Edit my account"
+    And I change my password from "please" to "newsecret"
     And I sign out
     And I sign in as "c.p.jobling@swansea.ac.uk/please"
     Then I should not be signed in
   
   Scenario: I should not need my current password to change my password
   
-  Scenario: I should have a gravatar
+  Scenario: I should see a Gravatar
+  
+  Scenario: I should see a link to change the Gravatar
+    
+  Scenario: Back should take me back to my profile page
+  
+  Scenario: I should be able to cancel my account
   
   Scenario: I should only have guest privileges
+  
+  
