@@ -48,7 +48,6 @@ Feature: Profile Page
   
   Scenario: I should be able to change my password
     When I change my password from "please" to "newsecret"
-    Then show me the page
     Then I should see "You updated your account successfully."
     
   Scenario: I should be able to sign in with my new password
