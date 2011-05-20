@@ -48,6 +48,7 @@ group :test do
   gem 'guard-cucumber'
   gem 'guard-spork'
   gem 'guard-livereload'
+  gem 'guard-bundler'
   gem 'growl'
 end
 
