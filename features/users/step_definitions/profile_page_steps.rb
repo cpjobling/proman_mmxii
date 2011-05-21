@@ -29,3 +29,12 @@ When /^I change my password from "([^"]*)" to "([^"]*)"$/ do |old_password, new_
   fill_in("Current password", :with => old_password)
   click_button("Update")
 end
+
+Then /^I should see a Gravatar$/ do
+  page.should have_selector('img.gravatar')
+end
+
+Then /^I should see a link to change the Gravatar$/ do
+  gravatar_url = "http:/gravatar.com/emails"
+  page.should have_selector("a", :href => gravatar_url, :content => "change")
+end

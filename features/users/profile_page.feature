@@ -73,8 +73,13 @@ Feature: Profile Page
   Scenario: I should not need my current password to change my password
   
   Scenario: I should see a Gravatar
+    Then I should see a Gravatar
+    When I follow "Edit my account"
+    Then I should see a Gravatar
   
   Scenario: I should see a link to change the Gravatar
+    When I follow "Edit my account"
+    Then I should see a link to change the Gravatar
     
   Scenario: Back should take me back to my profile page
   
