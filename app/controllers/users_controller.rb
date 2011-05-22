@@ -1,5 +1,4 @@
-class UsersController < ApplicationController
-  before_filter :authenticate_user!
+class UsersController < AuthorizedController
   
   def show
     @user = User.find(params[:id])

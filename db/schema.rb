@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110428105300) do
+ActiveRecord::Schema.define(:version => 20110522145729) do
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
@@ -48,12 +48,14 @@ ActiveRecord::Schema.define(:version => 20110428105300) do
     t.string   "initials"
     t.string   "last_name"
     t.string   "known_as"
+    t.integer  "roles_mask",                            :default => 0
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["roles_mask"], :name => "index_users_on_roles_mask"
   add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
 
 end

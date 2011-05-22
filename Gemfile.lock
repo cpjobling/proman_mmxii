@@ -42,6 +42,7 @@ GEM
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cancan (1.6.5)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -163,6 +164,7 @@ GEM
     rake (0.8.7)
     rb-fsevent (0.4.0)
     redis (2.2.0)
+    role_model (0.7.0)
     routing-filter (0.2.3)
       actionpack
     rspec (2.6.0)
@@ -207,6 +209,7 @@ PLATFORMS
 DEPENDENCIES
   annotate-models
   app-themer
+  cancan
   capybara (>= 0.4.1.2)
   compass (>= 0.11.0)
   cucumber-rails (>= 0.4.1)
@@ -235,6 +238,7 @@ DEPENDENCIES
   rails_admin!
   rb-fsevent
   redis
+  role_model
   routing-filter
   rspec-rails (>= 2.5.0)
   ruby_parser

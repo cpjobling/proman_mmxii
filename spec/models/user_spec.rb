@@ -224,4 +224,136 @@ describe User do
       @user.full_name.should ==  'Dr' + ' ' + @user.first_name + " T. " + @user.last_name
     end
   end
+  
+  describe "user's role" do
+    
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+    
+    it "should be guest when not registered" do
+      @user = User.new
+      @user.roles.should be_empty
+      @user.roles.size.should == 0
+      @user.should be_guest
+    end
+    
+    it "should be 'new user' when newly registered" do
+      @user.should have_role(:user)
+      @user.roles.size.should == 1
+      @user.should be_user
+      @user.should_not be_guest
+    end
+    
+    it "should be possible for administrators and coordinators to add new roles"
+    
+    it "should be possible to administrators and coordinators to remove a role"
+    
+    it "should not be possible for administrators and coordinators to add admin role"
+    
+    it "should not be possible for administrators and coordinators to remove admin role"
+    
+    it "should be possible to check that user has a valid role" do
+      User.valid_roles.each do |role|
+        @user.should have_role(:user)
+        unless role == :user
+          @user.should_not have_role(role)
+          @user.roles << role
+        end
+        @user.should have_role(role)
+      end
+      @user.should have_all_roles(User.valid_roles)
+      @user.save!
+      @user.reload
+      @user.should have_all_roles(User.valid_roles)
+    end
+    
+    it "should be possible to remove a role" do
+      @user.roles = User.valid_roles
+      @user.should have_all_roles(User.valid_roles)
+      @user.roles.each do |role|
+        @user.roles.delete(role)
+        @user.should_not have_role(role)
+      end
+      @user.should_not have_any_role(User.valid_roles)
+      @user.save!
+      @user.reload
+      # :user role added on save!
+      @user.should have_role(:user)
+    end
+    it "should not be possible to assign an undefined role" do
+      %w[tinker, tailor, soldier. spy].each do |made_up_role|
+        original_roles_mask = @user.roles_mask
+        @user.roles << made_up_role
+        @user.roles_mask.should == original_roles_mask
+        @user.should_not have_role(made_up_role)
+      end
+    end
+    
+    it "should be possible to query all user's roles" do
+      roles = []
+      User.valid_roles.each do |role|
+        roles << role
+        @user.roles << role
+        @user.should have_all_roles(roles)
+        roles.each do |the_role|
+          @user.should have_role(the_role)
+        end
+      end
+    end
+  end
+  
+  describe "roles_mask" do
+    it "should be settable and readable" do
+      u = User.new
+      u.roles_mask.should == 0
+      u.roles_mask = 1
+      u.roles_mask.should == 1
+    end
+    it "shoud be persistent" do
+      u = User.new(@attr)
+      u.roles_mask = 1
+      u.save!
+      u.reload
+      u.roles_mask.should == 1
+    end
+  end
+  
+  describe "known_as" do
+    it "should be settable and readable" do
+      u = User.new
+      u.known_as.should be_nil
+      u.known_as = 'fred'
+      u.known_as.should == 'fred'
+    end
+    it "shoud be persistent" do
+      u = User.new(@attr)
+      u.known_as = 'fred'
+      u.save!
+      u.reload
+      u.known_as.should == 'fred'
+    end
+  end
+  
+  
+  describe "admin role" do
+    it "should not be a role that guest user's have"
+    
+    it "should not be a role that new user's have"
+    
+    it "should be a role that only admin user's can add"
+    
+    it "admin users should be recognized"
+    
+    it "should not be possible for admin user to remove role from himself"
+  end
+  
+  describe "user_id" do
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+    it "should be equal to user.id" do
+      @user.user_id.should == @user.id
+    end
+  end
 end

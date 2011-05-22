@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110428105300
+# Schema version: 20110522145729
 #
 # Table name: users
 #
@@ -26,11 +26,16 @@
 #  initials               :string(255)
 #  last_name              :string(255)
 #  known_as               :string(255)
+#  roles_mask             :integer         default(0)
 #
 
+# given a User class with a roles_mask attribute
+require 'rubygems'
+require 'role_model'
+
 class User < ActiveRecord::Base
+  before_save :generate_user_name, :set_default_role
   
-  before_save :generate_user_name
   
   # Include default devise modules. Others available are:
   # :encryptable, :lockable, :timeoutable and :omniauthable
@@ -39,7 +44,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :first_name, :last_name, :title, :initials, :known_as
+    :first_name, :last_name, :title, :initials, :known_as, :roles_mask
     
   attr_protected :user_name
   attr_readonly :email
@@ -64,6 +69,26 @@ class User < ActiveRecord::Base
     full_name = [title, first_name, initials, last_name].join(' ').strip().sub(/\s{2,}/, ' ')
   end
   
+  # User roles
+  include RoleModel
+  roles_attribute :roles_mask
+  roles :user, :admin, :supervisor, :coordinator, :administrator, :student, :supervisee
+  def guest?
+    self.roles.empty?
+  end
+  
+  def user?
+    self.is?(:user)
+  end
+  
+  def admin?
+    self.is?(:admin)
+  end
+  
+  def user_id
+    self.id
+  end
+  
   protected
     def generate_user_name
        user_name = email.split('@').first
@@ -72,5 +97,9 @@ class User < ActiveRecord::Base
       
     def self.find_for_database_authentication(conditions)
       self.where(:user_name => conditions[:email]).first || self.where(:email => conditions[:email]).first
+    end
+    
+    def set_default_role
+      self.roles << [:user]
     end
 end

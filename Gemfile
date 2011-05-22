@@ -22,6 +22,8 @@ gem 'formtastic'
 gem 'hpricot'
 gem 'ruby_parser'
 gem 'gravatar_image_tag'
+gem 'cancan'
+gem 'role_model'
 
 
 group :development do
