@@ -13,7 +13,6 @@ Feature: Profile Page
   Scenario: I should be able to edit my profile
     When I follow "Edit my account"
     And I fill in "I prefer to be known as" with "Chris"
-    And I fill in "Current password" with "please"
     And I press "Update"
     Then I should see "You updated your account successfully."
     And I should see "Chris" within "nav#main-navigation"
@@ -24,7 +23,6 @@ Feature: Profile Page
     Then the "Email" field should contain "c.p.jobling@swansea.ac.uk"
     And I should see a "password" field called "Password"
     And I should see a "password" field called "Confirmation"
-    And I should see a "password" field called "Current password"
     And I should see select widget called "Title"
     And I should see a "text" field called "First (given) name"
     And I should see a "text" field called "Initials"
@@ -41,7 +39,6 @@ Feature: Profile Page
     And I fill in "Initials" with "P."
     And I fill in "Last (family) name" with "Jobling"
     And I fill in "I prefer to be known as" with "Chris"
-    And I fill in "Current password" with "please"
     And I press "Update"
     And I should see "You updated your account successfully."
     Then The user record for "c.p.jobling@swansea.ac.uk" should contain the name "Dr" "Christopher" "P." "Jobling" known as "Chris" 
@@ -97,11 +94,12 @@ Feature: Profile Page
   Scenario: I should see my system account details plus my AKA 
     When I follow "Edit my account"
     And I fill in "I prefer to be known as" with "Chris"
-    And I fill in "Current password" with "please"
     And I press "Update"
     Then I should see "Chris" within ".user_known_as"
 
   Scenario: I should not need my current password to change my password
+    When I follow "Edit my account"
+    Then I should not see "Current password"
   
   Scenario: I should only have guest privileges
 

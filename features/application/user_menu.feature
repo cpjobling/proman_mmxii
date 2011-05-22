@@ -23,7 +23,6 @@ Feature: User menu
      When I follow "My account"
      And I follow "Edit my account"
      And I fill in "I prefer to be known as" with "Fred"
-     And I fill in "Current password" with "secret"
      And I press "Update"
      Then I should be known as "Fred"
      And I should see "Fred" within "nav#main-navigation"

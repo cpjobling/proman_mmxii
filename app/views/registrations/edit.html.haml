@@ -13,8 +13,6 @@
     = f.input :email, :required => true
     = f.input :password, :hint => "leave blank if you don't want to change it"
     = f.input :password_confirmation
-    = f.input :current_password, :type=>:password, :hint => "we need your current password to confirm your changes", :required => true
-
   =f.inputs :name => :user_details, :id => 'user_details' do
     = f.input :title, :as => :select, :collection => get_titles 
     = f.input :first_name, :required => true

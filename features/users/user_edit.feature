@@ -10,7 +10,6 @@ Feature: Edit User
       When I follow "My account"
       And I follow "Edit my account"
       And I fill in "I prefer to be known as" with "Fred"
-      And I fill in "Current password" with "please"
       And I press "Update"
       And I go to the homepage
       Then I should see "Fred"

@@ -26,7 +26,6 @@ end
 When /^I change my password from "([^"]*)" to "([^"]*)"$/ do |old_password, new_password|
   fill_in("Password", :with => new_password)
   fill_in("Confirm", :with => new_password)
-  fill_in("Current password", :with => old_password)
   click_button("Update")
 end
 
