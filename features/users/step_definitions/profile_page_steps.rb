@@ -38,3 +38,9 @@ Then /^I should see a link to change the Gravatar$/ do
   gravatar_url = "http:/gravatar.com/emails"
   page.should have_selector("a", :href => gravatar_url, :content => "change")
 end
+
+Then /^I should see the url for user "([^"]*)"$/ do |email|
+  user = User.find_by_email(email)
+  url = user_path(user, :locale=>'en')
+  page.should have_selector("a[@href='#{url}']")
+end

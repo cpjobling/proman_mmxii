@@ -31,6 +31,7 @@ Spork.prefork do
     # config.mock_with :rspec
     config.include(EmailSpec::Helpers)
     config.include(EmailSpec::Matchers)
+    # config.include Devise::TestHelpers, :type => :controller # see support/devise.rb
 
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     config.fixture_path = "#{::Rails.root}/spec/fixtures"

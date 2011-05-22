@@ -61,6 +61,17 @@ Feature: Authentication
     And I go to the home page
     And I should be signed out
 
+
+  Scenario: User signs in successfully with just user name
+    Given I am not signed in
+    And I am a user named "foo" with an email "user@swansea.ac.uk" and password "please"
+    When I go to the sign in page
+    And I sign in as "user/please"
+    Then I should see "Signed in successfully."
+    And I should be signed in
+    When I return next time
+    Then I should be already signed in
+
   Scenario: User signs in successfully with email
     Given I am not signed in
     And I am a user named "foo" with an email "user@swansea.ac.uk" and password "please"
@@ -68,8 +79,6 @@ Feature: Authentication
     And I sign in as "user@swansea.ac.uk/please"
     Then I should see "Signed in successfully."
     And I should be signed in
-    When I return next time
-    Then I should be already signed in
     
   Scenario: User is remembered
     Given I am not signed in
@@ -81,3 +90,4 @@ Feature: Authentication
     And I should be signed in
     When I return some-time later
     Then I should be already signed in
+

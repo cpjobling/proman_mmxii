@@ -61,13 +61,16 @@ class User < ActiveRecord::Base
   end
   
   def full_name
-    return [title, first_name, initials, last_name].join(' ').squeeze().strip()
+    full_name = [title, first_name, initials, last_name].join(' ').strip().sub(/\s{2,}/, ' ')
   end
   
   protected
     def generate_user_name
-       user_name = email.split('@').first.downcase
+       user_name = email.split('@').first
        write_attribute(:user_name, user_name)
     end
       
+    def self.find_for_database_authentication(conditions)
+      self.where(:user_name => conditions[:email]).first || self.where(:email => conditions[:email]).first
+    end
 end

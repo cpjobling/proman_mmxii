@@ -70,8 +70,6 @@ Feature: Profile Page
     And I sign in as "c.p.jobling@swansea.ac.uk/please"
     Then I should not be signed in
   
-  Scenario: I should not need my current password to change my password
-  
   Scenario: I should see a Gravatar
     Then I should see a Gravatar
     When I follow "Edit my account"
@@ -82,9 +80,28 @@ Feature: Profile Page
     Then I should see a link to change the Gravatar
     
   Scenario: Back should take me back to my profile page
-  
+    When I follow "Edit my account"
+    And I follow "Back"
+    Then I should be on the profile page for c.p.jobling@swansea.ac.uk
+
   Scenario: I should be able to cancel my account
+    When I follow "Edit my account"
+    Then I should see "Cancel my account"
+
+  Scenario: I should see my system account details
+    Then I should see "c.p.jobling" within ".user_user_name"
+    And I should see "c.p.jobling@swansea.ac.uk" within ".user_email"
+    And I should not see "Also known as"
+    And I should see the url for user "c.p.jobling@swansea.ac.uk"
+    
+  Scenario: I should see my system account details plus my AKA 
+    When I follow "Edit my account"
+    And I fill in "I prefer to be known as" with "Chris"
+    And I fill in "Current password" with "please"
+    And I press "Update"
+    Then I should see "Chris" within ".user_known_as"
+
+  Scenario: I should not need my current password to change my password
   
   Scenario: I should only have guest privileges
-  
-  
+

@@ -1,4 +1,4 @@
-@password_reminder
+@password_reset
 
 Feature: Password Reset
   As a user that forgot his password
@@ -17,7 +17,7 @@ Feature: Password Reset
   Scenario: Send a reset instructions email if given a valid email
     Given "hector" a confirmed user
     When I ask to reset my password
-    And I fill in "Email" with "hector@swansea.ac.uk"
+    And I fill in "user_email" with "hector@swansea.ac.uk"
     And I press "Send me reset password instructions"
     Then I should be on the sign in page
     And I should see "You will receive an email with instructions about how to reset your password in a few minutes."
@@ -29,7 +29,7 @@ Feature: Password Reset
   Scenario: Do not send a reset instructions email if given an invalid email
     Given "hector" a confirmed user
     When I ask to reset my password
-    And I fill in "Email" with "hector@somehost.com"
+    And I fill in "user_email" with "hector@somehost.com"
     And I press "Send me reset password instructions"
     Then "hector@mail.com" should receive no email
     And I should see "Email not found"
@@ -39,7 +39,6 @@ Feature: Password Reset
     When I follow "Change my password" in the email
     Then I should be on the change password page
     Then I should see a password modification form
-    
 
   Scenario: Not display change password form with invalid token
     Given "hector" a user that opened his reset password email
@@ -48,9 +47,8 @@ Feature: Password Reset
     And I fill in "New password" with "<secret>"
     And I fill in "Confirm new password" with "<secret>"
     And I press "Change my password"
-    And I should be on the password page
+    Then I should be on the password page
     And I should see "Reset password token is invalid"
-
 
   Scenario: Update password and log in user with valid input
     Given "hector" a user that opened his reset password email
@@ -59,7 +57,7 @@ Feature: Password Reset
     And I fill in "New password" with "newsecret"
     And I fill in "Confirm new password" with "newsecret"
     When I press "Change my password"
-    And I should see "Your password was changed successfully. You are now signed in."
+    Then I should see "Your password was changed successfully. You are now signed in."
 
   Scenario Outline: Don't update password and log in user with invalid input
     Given "hector" a user that opened his reset password email

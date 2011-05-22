@@ -7,8 +7,8 @@ Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*
             :email => email,
             :password => password,
             :password_confirmation => password,
-            :first_name => 'foo',
-            :last_name => 'user')
+            :first_name => 'Foo',
+            :last_name => 'Bar')
   user.save!
   user.confirm!
 end

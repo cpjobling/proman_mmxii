@@ -28,9 +28,9 @@ en:
         #  last_name              :string(255)
         #  known_as               :string(255)
         #  terms                  :boolean        
-        user_name: 'User name'
         email: 'Email'
         password: 'Password'
+        user_name: 'User name'
         password_confirmation: 'Confirmation'
         reset_password_sent_at: 'Password reset sent at'
         remember_created_at: 'Remembered since'

@@ -10,19 +10,23 @@
         = gravatar_for @user
         = @user.full_name
     %td{:class => "sidebar round"}
-      - if @user.known_as
+      .user_user_name
         %strong
-          Also known as:
-        = @user.known_as 
-        %br
-      %strong
-        Email: 
-      = mail_to @user.email
-      %br
-      %strong
-        URL:
-      = link_to user_path(@user), @user
-      
+          User name:
+        = @user.user_name
+      - if @user.known_as
+        .user_known_as
+          %strong
+            Also known as:
+          = @user.known_as 
+      .user_email
+        %strong
+          Email: 
+        = mail_to @user.email
+      .user_url
+        %strong
+          URL:
+        = link_to user_path(@user), @user
 -if @user == current_user
   = link_to "Edit my account", edit_user_registration_path
 
