@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :first_name, :last_name, :title, :initials, :known_as, :roles_mask
+    :first_name, :last_name, :title, :initials, :known_as, :roles
     
   attr_protected :user_name
   attr_readonly :email
@@ -83,10 +83,6 @@ class User < ActiveRecord::Base
   
   def admin?
     self.is?(:admin)
-  end
-  
-  def user_id
-    self.id
   end
   
   protected

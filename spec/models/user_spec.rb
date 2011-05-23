@@ -245,15 +245,25 @@ describe User do
       @user.should_not be_guest
     end
     
-    it "should be possible for administrators and coordinators to add new roles"
+    it "should not be possible for unprivileged users to add new roles" do
+      unprivileged_roles = User.valid_roles - [:admin, :administrator, :coordinator]
+    end
     
-    it "should be possible to administrators and coordinators to remove a role"
+    it "should not be possible unprivileged users to remove a role" do
+      unprivileged_roles = User.valid_roles - [:admin, :administrator, :coordinator]
+    end
     
-    it "should not be possible for administrators and coordinators to add admin role"
+    it "should not be possible for administrators and coordinators to add admin role" do
+      [:administrator, :coordinator].each do |role|
+       # @user.roles << role
+       #  @user.should have_role(role)
+       # email = "#{role.to_s}@swansea.ac.uk"
+       # other_user = User.create!(@attr.merge(:email => email, :roles => [:admin]))
+       # other_user.should_not be_admin
+      end
+    end
     
-    it "should not be possible for administrators and coordinators to remove admin role"
-    
-    it "should be possible to check that user has a valid role" do
+    it "should be possible to add administrators and coordinators to add new valid roles" do
       User.valid_roles.each do |role|
         @user.should have_role(:user)
         unless role == :user
@@ -268,7 +278,7 @@ describe User do
       @user.should have_all_roles(User.valid_roles)
     end
     
-    it "should be possible to remove a role" do
+    it "should be possible to remove a valid role" do
       @user.roles = User.valid_roles
       @user.should have_all_roles(User.valid_roles)
       @user.roles.each do |role|
@@ -337,6 +347,10 @@ describe User do
   
   
   describe "admin role" do
+    before(:each) do
+      @user = User.create!(@attr)
+      @user.roles << :admin
+    end
     it "should not be a role that guest user's have"
     
     it "should not be a role that new user's have"
@@ -345,15 +359,11 @@ describe User do
     
     it "admin users should be recognized"
     
-    it "should not be possible for admin user to remove role from himself"
-  end
-  
-  describe "user_id" do
-    before(:each) do
-      @user = User.create!(@attr)
-    end
-    it "should be equal to user.id" do
-      @user.user_id.should == @user.id
+    it "should not be possible for admin user to remove role from himself" do
+      @user.should be_admin
+      @user.roles.delete(:admin)
+      #@user.should be_admin
     end
   end
+
 end
