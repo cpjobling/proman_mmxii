@@ -61,9 +61,9 @@ describe UsersController do
         sign_in @user
       end
 
-      it "should redirect" do
+      it "should be successful" do
         get :edit, :id => @user
-        response.should redirect_to(edit_user_registration_path)
+        response.should be_success
       end
 
     end

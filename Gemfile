@@ -24,6 +24,8 @@ gem 'ruby_parser'
 gem 'gravatar_image_tag'
 gem 'cancan'
 gem 'role_model'
+gem 'client_side_validations'
+gem 'rake'
 
 
 group :development do

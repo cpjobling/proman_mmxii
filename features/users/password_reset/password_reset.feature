@@ -44,7 +44,6 @@ Feature: Password Reset
     Given "hector" a user that opened his reset password email
     When I go to the change password form with bad token
     Then I should see a password modification form
-    And show me the page
     And I fill in "New password" with "<secret>"
     And I fill in "Confirm new password" with "<secret>"
     And I press "Change my password"

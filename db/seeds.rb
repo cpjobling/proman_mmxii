@@ -8,6 +8,17 @@
 puts 'SETTING UP DEFAULT USER LOGIN'
 user = User.create!(:email => 'a.lecturer@swansea.ac.uk',
   :password => 'please', :password_confirmation => 'please',
-  :first_name => "Anthony", :last_name => "Lecturer", :user_name => 'user')
+  :first_name => "Anthony", :last_name => "Lecturer")
 user.confirm!
 puts 'New user created: ' << user.email
+puts 'SETTING UP ADMIN USER LOGIN'
+admin = User.create!(:email => 'c.p.jobling@swansea.ac.uk',
+  :password => 'foobar', :password_confirmation => 'foobar',
+  :title => "Dr", 
+  :first_name => "Christopher", :initials => "P.", :last_name => "Jobling",
+  :known_as => "Chris")
+admin.confirm!
+admin.roles << :admin
+admin.save!
+puts 'Admin user created: ' << admin.email << "\n"
+puts "Don't forget to change your password!"

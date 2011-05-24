@@ -8,7 +8,6 @@ Feature: Edit User
       When I sign in as "user@swansea.ac.uk/please"
       Then I should be signed in
       When I follow "My account"
-      And I follow "Edit my account"
       And I fill in "I prefer to be known as" with "Fred"
       And I press "Update"
       And I go to the homepage

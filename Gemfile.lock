@@ -56,6 +56,8 @@ GEM
     childprocess (0.1.9)
       ffi (~> 1.0.6)
     chunky_png (1.2.0)
+    client_side_validations (3.0.4)
+      activesupport (~> 3.0.0)
     compass (0.11.1)
       chunky_png (~> 1.1)
       fssm (>= 0.2.7)
@@ -167,7 +169,7 @@ GEM
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
       rspec-mocks (~> 2.6.0)
-    rspec-core (2.6.2)
+    rspec-core (2.6.3)
     rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.6.0)
@@ -208,6 +210,7 @@ DEPENDENCIES
   app-themer
   cancan
   capybara (>= 0.4.1.2)
+  client_side_validations
   compass (>= 0.11.0)
   cucumber-rails (>= 0.4.1)
   database_cleaner (>= 0.6.7)
@@ -232,6 +235,7 @@ DEPENDENCIES
   rails (>= 3.0.7)
   rails3-generators
   rails_admin!
+  rake
   rb-fsevent
   redis
   role_model

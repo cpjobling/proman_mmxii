@@ -24,6 +24,12 @@ Feature: Application chrome
   Scenario: header has "Register" in navigation menu
     Then I should see "Register" within "nav#main-navigation"
 
+  Scenario: header does not have "My account" in navigation menu
+      Then I should not see "My account" within "nav#main-navigation"
+
+  Scenario: header does not have "My profile" in navigation menu
+       Then I should not see "My profile" within "nav#main-navigation"
+           
   Scenario: header has a navset menu
     Then I should see "Home" within "nav#main-navigation"
   

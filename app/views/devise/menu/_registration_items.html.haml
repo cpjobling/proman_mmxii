@@ -1,10 +1,12 @@
 - if user_signed_in? 
   %li
-    = current_user.known_as || current_user.user_name 
+    = current_user.known_as || current_user.user_name
   %li
-    = link_to('My account', user_path(current_user))
+    = link_to 'My account', edit_user_registration_path
+  %li
+    = link_to 'My profile', user_path(current_user)
 - else 
   %li
     Guest
   %li
-    = link_to('Register', new_user_registration_path)
+    = link_to 'Register', new_user_registration_path

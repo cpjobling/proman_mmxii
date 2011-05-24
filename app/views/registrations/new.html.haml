@@ -3,7 +3,7 @@
 - slogan(quotation_generator("History is little more than the register of the crimes, follies, and misfortunes of mankind.", :author => "Edward Gibbon", :born => 1737, :died => 1794))
 
 
-= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f|
+= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :validations => true do |f|
   = devise_error_messages!
   = field_set_tag "Account details", :id => 'account_details' do
     = f.input :email, :hint => "This will be your login name. It should be your University email address.", :placeholder => "user_name@swansea.ac.uk"

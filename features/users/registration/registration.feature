@@ -146,10 +146,10 @@ Feature: Sign up
     Then I should have a successful registration
 
     Examples: Additional input needed
-      | email                      | password | password_confirmation | first_name | last_name |
-      | c.p.jobling@swan.ac.uk     | secret   |  secret               | Chris      | Jobling   |
-      | c.p.jobling@swansea.ac.uk  | secret   |  secret               | Chris      | Jobling   |
-      | c.p.jobling@abertawe.ac.uk | secret   |  secret               | Chris      | Jobling   |
+      | email                   | password | password_confirmation | first_name | last_name |
+      | n.o.body@swan.ac.uk     | secret   |  secret               | Chris      | Jobling   |
+      | n.o.body@swansea.ac.uk  | secret   |  secret               | Chris      | Jobling   |
+      | n.o.body@abertawe.ac.uk | secret   |  secret               | Chris      | Jobling   |
       
   Scenario Outline: Not allow an anonymous user to create account with incomplete profile data
     Given "chris" is an anonymous user

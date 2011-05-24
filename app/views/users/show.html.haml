@@ -1,4 +1,4 @@
-- title "#{@user.full_name}"
+- title "My Profile"
 
 - slogan(quotation_generator("Please allow me to introduce myself, I'm a man of wealth and taste", :author => "Mick Jagger and Keith Richards"))
 
@@ -28,6 +28,6 @@
           URL:
         = link_to user_path(@user), @user
 -if @user == current_user
-  = link_to "Edit my account", edit_user_registration_path
+  = link_to "Edit my profile", edit_user_path(@user)
 
 

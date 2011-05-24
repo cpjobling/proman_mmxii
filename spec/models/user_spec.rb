@@ -4,7 +4,7 @@ describe User do
 
   before(:each) do
     @attr = {
-      :email => "C.P.Jobling@swansea.ac.uk",
+      :email => "hector.somebody@swansea.ac.uk",
       :password => "foobar",
       :password_confirmation => "foobar",
       :first_name => "Test",
@@ -25,16 +25,16 @@ describe User do
   it 'should accept valid email addresses' do
     addresses = [
       "123456@swansea.ac.uk",
-      "c.p.joblingR@swansea.ac.uk",
+      "hector.somebodyR@swansea.ac.uk",
       "123456@Swansea.ac.uk",
-      "c.p.jobling@Swansea.ac.uk",
+      "hector.somebody@swansea.ac.uk",
       "123456@swan.ac.uk",
-      "c.p.jobling@swan.ac.uk",
+      "hector.somebody@swan.ac.uk",
       "123456@Swan.ac.uk",
-      "c.p.jobling@Swan.ac.uk",
-      "c.p.jobling@abertawe.ac.uk", 
+      "hector.somebody@Swan.ac.uk",
+      "hector.somebody@abertawe.ac.uk", 
       "123456@abertawe.ac.uk",
-      "c.p.jobling@Abertawe.ac.uk",
+      "hector.somebody@Abertawe.ac.uk",
       "123456@Abertawe.ac.uk"
     ]
     addresses.each do |address|
@@ -50,7 +50,7 @@ describe User do
     end
     
     it "should have a user name" do
-      @user.user_name.should == "c.p.jobling"
+      @user.user_name.should == "hector.somebody"
     end
   
     it "should have a user name that is the email address without the domain" do
@@ -60,7 +60,7 @@ describe User do
     it "should have a readonly user name" do
       @user.user_name = 'another_name'
       @user.save!
-      @user.user_name.should == "c.p.jobling"
+      @user.user_name.should == "hector.somebody"
     end
   end
   

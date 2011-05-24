@@ -61,9 +61,12 @@ module NavigationHelpers
 
     when /the change password page/
       edit_user_password_path
-
+      
     when /the change password form with bad token/
       edit_user_password_path(:reset_password_token => 'invalid')
+
+    when /my account page/
+      edit_user_registration_path
 
     when /^the profile page for (.*)$/
       user_path(User.find_by_email($1),:locale=>'en')
