@@ -1,0 +1,38 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Some errors were found, please take a look:"
+    # Labels and hints examples
+    labels:
+      devise:
+        confirmation:
+          new:
+            submit: 'Resend confirmation instructions'
+        password:
+          edit:
+            password: "New password"
+            password_confirmation: "Confirm new password"
+            submit: "Change my password"
+          new:
+            submit: "Send me reset password instructions"
+        session:
+          new:
+            submit: "Sign in"
+        unlock:
+          new:
+            submit: "Resend unlock instructions" 
+    #hints:
+    #   email: 'User name to sign in.'
+    #   password: 'No special characters, please.'
+    placeholders:
+      devise:
+        email: 'user_name@swansea.ac.uk'
+

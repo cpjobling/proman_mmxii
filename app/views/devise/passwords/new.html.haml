@@ -3,11 +3,9 @@
 - slogan(quotation_generator("I've a grand memory for forgetting", :author => "Robert Louis Stevenson", :born => 1850, :died => 1894))
 
 
-= semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
   = devise_error_messages!
-  = f.inputs do 
-    = f.input :email
-  = f.buttons do
-    = f.commit_button "Send me reset password instructions"
-
+  = f.input :email
+  = f.button :submit, :value => "Send me reset password instructions"
+  
 = render :partial => "devise/shared/links"

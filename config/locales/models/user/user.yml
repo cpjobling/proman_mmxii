@@ -45,8 +45,8 @@ en:
         confirmation_token: 
         sign_in_count: 'Signed in {{sign_in_count}} times'
         title: 'Title'
-        first_name: 'First (given) name'
-        last_name: 'Last (family) name'
+        first_name: 'First name'
+        last_name: 'Last name'
         initials: 'Initials'
         known_as: 'I prefer to be known as'
         staff_or_student_number: 'Staff or student number'

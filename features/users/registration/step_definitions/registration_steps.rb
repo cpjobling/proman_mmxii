@@ -10,9 +10,9 @@ Given /^"(.*)" an unconfirmed user$/ do |name|
   And "I fill in \"Confirmation\" with \"secret\""
 
   And "I select \"Mr\" from \"Title\""
-  And "I fill in \"First (given) name\" with \"#{name}\""
+  And "I fill in \"First name\" with \"#{name}\""
   And "I fill in \"Initials\" with \"P.\""
-  And "I fill in \"Last (family) name\" with \"Jobling\""    
+  And "I fill in \"Last name\" with \"Jobling\""    
   
   When "I press \"Register\""
   Then "I should have a successful registration"
@@ -26,9 +26,9 @@ Given /^"(.*)" an unconfirmed user with password "(.*)"$/ do |name, password|
   And "I fill in \"Confirmation\" with \"#{password}\""
 
   And "I select \"Mr\" from \"Title\""
-  And "I fill in \"First (given) name\" with \"#{name}\""
+  And "I fill in \"First name\" with \"#{name}\""
   And "I fill in \"Initials\" with \"P.\""
-  And "I fill in \"Last (family) name\" with \"Jobling\""  
+  And "I fill in \"Last name\" with \"Jobling\""  
   
   When "I press \"Register\""
   Then "I should have a successful registration"
@@ -59,9 +59,9 @@ Then /^I should see the registration page$/ do
   page.should have_content('Email')
   page.should have_content('Password')
   page.should have_content('Title')
-  page.should have_content('First (given) name')
+  page.should have_content('First name')
   page.should have_content('Initials')
-  page.should have_content('Last (family) name')
+  page.should have_content('Last name')
   page.should have_content('I prefer to be known as')
   page.should have_content('Register')
 end

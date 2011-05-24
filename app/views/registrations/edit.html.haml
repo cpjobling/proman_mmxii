@@ -7,20 +7,22 @@
     = @user.full_name
 
   
-= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = devise_error_messages!
-  =f.inputs :name => :account_details, :id => 'account_details' do
-    = f.input :email, :required => true
+
+  =field_set_tag :name => "Account details", :id => 'account_details' do
+    = f.input :email, :readonly => true
     = f.input :password, :hint => "leave blank if you don't want to change it"
     = f.input :password_confirmation
-  =f.inputs :name => :user_details, :id => 'user_details' do
+
+  =field_set_tag :name => "User details", :id => 'user_details' do
     = f.input :title, :as => :select, :collection => get_titles 
-    = f.input :first_name, :required => true
+    = f.input :first_name
     = f.input :initials
-    = f.input :last_name, :required => true
+    = f.input :last_name
     = f.input :known_as
-  =f.buttons do
-    = f.commit_button t('.submit')
+
+    = f.button :submit, :value => "Update"
 
 %h3 Cancel my account
 %p

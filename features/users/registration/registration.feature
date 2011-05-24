@@ -10,8 +10,8 @@ Feature: Sign up
     And I fill in "Email" with "t.tester@swansea.ac.uk"
     And I fill in "Password" with "please"
     And I fill in "Confirmation" with "please"
-    And I fill in "First (given) name" with "Test"
-    And I fill in "Last (family) name" with "Tester"
+    And I fill in "First name" with "Test"
+    And I fill in "Last name" with "Tester"
     And I press "Register"
     Then I should see "You have signed up successfully. However, we could not sign you in because your account is unconfirmed."
 
@@ -21,10 +21,10 @@ Feature: Sign up
     And I fill in "Email" with "someone@notatswansea.ac.uk"
     And I fill in "Password" with "please"
     And I fill in "Confirmation" with "please"
-    And I fill in "First (given) name" with "Test"
-    And I fill in "Last (family) name" with "Tester"
+    And I fill in "First name" with "Test"
+    And I fill in "Last name" with "Tester"
     And I press "Register"
-    Then I should see "Email is invalid" within "#user_email_input"
+    Then I should see "Email is invalid" within ".error"
 
   Scenario: User signs up without password
     Given I am not signed in
@@ -32,10 +32,10 @@ Feature: Sign up
     And I fill in "Email" with "t.tester@swansea.ac.uk"
     And I fill in "Password" with ""
     And I fill in "Confirmation" with "please"
-    And I fill in "First (given) name" with "Test"
-    And I fill in "Last (family) name" with "Tester"
+    And I fill in "First name" with "Test"
+    And I fill in "Last name" with "Tester"
     And I press "Register"
-    Then I should see "can't be blank" within "#user_password_input"
+    Then I should see "can't be blank" within ".error"
 
   Scenario: User signs up without password confirmation
     Given I am not signed in
@@ -43,10 +43,10 @@ Feature: Sign up
     And I fill in "Email" with "t.tester@swansea.ac.uk"
     And I fill in "Password" with "please"
     And I fill in "Confirmation" with ""
-    And I fill in "First (given) name" with "Test"
-    And I fill in "Last (family) name" with "Tester"
+    And I fill in "First name" with "Test"
+    And I fill in "Last name" with "Tester"
     And I press "Register"
-    Then I should see "doesn't match confirmation" within "#user_password_input" 
+    Then I should see "doesn't match confirmation" within ".error"
 
   Scenario: User signs up without a first name
     Given I am not signed in
@@ -54,19 +54,19 @@ Feature: Sign up
     And I fill in "Email" with "t.tester@swansea.ac.uk"
     And I fill in "Password" with "please"
     And I fill in "Confirmation" with "please"
-    And I fill in "Last (family) name" with "Tester"
+    And I fill in "Last name" with "Tester"
     And I press "Register"
-    Then I should see "can't be blank" within "#user_first_name_input"
+    Then I should see "can't be blank" within ".error"
     
   Scenario: User signs up without a last name
     Given I am not signed in
     When I go to the registration page
     And I fill in "Email" with "t.tester@swansea.ac.uk"
     And I fill in "Password" with "please"
-    And I fill in "Confirmation" with "please1"
-    And I fill in "First (given) name" with "Test"
+    And I fill in "Confirmation" with "please"
+    And I fill in "First name" with "Test"
     And I press "Register"
-    Then I should see "can't be blank" within "#user_last_name_input"
+    Then I should see "can't be blank" within ".error"
     
       
   Scenario: Display registration page to anonymous user
@@ -84,9 +84,9 @@ Feature: Sign up
     And I fill in "Confirmation" with "secret"
     
     And I select "Mr" from "Title"
-    And I fill in "First (given) name" with "Hector"
+    And I fill in "First name" with "Hector"
     And I fill in "Initials" with "N."
-    And I fill in "Last (family) name" with "Actor"  
+    And I fill in "Last name" with "Actor"  
     And I fill in "I prefer to be known as" with "Hector"
 
     When I press "Register"
@@ -99,8 +99,8 @@ Feature: Sign up
     And I fill in "Password" with "<password>"
     And I fill in "Confirmation" with "<password_confirmation>"
 
-    And I fill in "First (given) name" with "<first_name>"
-    And I fill in "Last (family) name" with "<last_name>"
+    And I fill in "First name" with "<first_name>"
+    And I fill in "Last name" with "<last_name>"
         
     And I press "Register"
     Then I should have an unsuccessful registration
@@ -139,8 +139,8 @@ Feature: Sign up
     And I fill in "Password" with "<password>"
     And I fill in "Confirmation" with "<password_confirmation>"
 
-    And I fill in "First (given) name" with "<first_name>"
-    And I fill in "Last (family) name" with "<last_name>"
+    And I fill in "First name" with "<first_name>"
+    And I fill in "Last name" with "<last_name>"
 
     And I press "Register"
     Then I should have a successful registration
@@ -158,8 +158,8 @@ Feature: Sign up
     And I fill in "Password" with "secret"
     And I fill in "Confirmation" with "secret"
     
-    And I fill in "First (given) name" with "<first_name>"
-    And I fill in "Last (family) name" with "<last_name>"
+    And I fill in "First name" with "<first_name>"
+    And I fill in "Last name" with "<last_name>"
     And I press "Register"
     Then I should have an unsuccessful registration
 
