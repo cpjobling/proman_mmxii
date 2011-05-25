@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525192823) do
+ActiveRecord::Schema.define(:version => 20110525194833) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "supervisor_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110525192823) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "comment"
   end
 
   add_index "allocations", ["project_id"], :name => "index_allocations_on_project_id", :unique => true

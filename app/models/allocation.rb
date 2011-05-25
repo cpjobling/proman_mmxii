@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110525161632
+# Schema version: 20110525194833
 #
 # Table name: allocations
 #
@@ -11,6 +11,7 @@
 #  project_id    :integer
 #  created_at    :datetime
 #  updated_at    :datetime
+#  comment       :string(255)
 #
 
 class Allocation < ActiveRecord::Base
