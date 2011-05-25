@@ -15,7 +15,10 @@ Proman2012::Application.routes.draw do
     end
 
     resources :users, :only => [:show, :edit]
-    resources :projects
+    resources :supervisors do
+      resources :projects
+    end
+    resources :students
   
     #resource :user, :as => :account do
     #  member do

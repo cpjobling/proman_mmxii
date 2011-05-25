@@ -32,4 +32,5 @@
 
 class Supervisor < User
   has_many :students, :through => :allocations
+  has_many :projects
 end

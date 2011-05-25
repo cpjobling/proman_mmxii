@@ -1,0 +1,11 @@
+disciplines:
+  :aero: "Aerospace Engineering"
+  :chem: "Chemical and Bioprocess Engineering"
+  :eee: "Electronic and Electrical Engineering"
+  :icct: "Information, Communications and Computing Technology"
+  :env: "Environmental Engineering"
+centres:
+  :c2ec: "Civil and Computational Engineering Centre"
+  :mrc: "Materials Research Centre"
+  :mnc: "Multidisciplinary Nanotechnology Centre"
+  :ses: "Sport and Exercise Science"
