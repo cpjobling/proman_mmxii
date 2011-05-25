@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110522145729
+# Schema version: 20110525161632
 #
 # Table name: users
 #
@@ -27,6 +27,7 @@
 #  last_name              :string(255)
 #  known_as               :string(255)
 #  roles_mask             :integer         default(0)
+#  type                   :string(255)
 #
 
 # given a User class with a roles_mask attribute
@@ -72,7 +73,8 @@ class User < ActiveRecord::Base
   # User roles
   include RoleModel
   roles_attribute :roles_mask
-  roles :user, :admin, :supervisor, :coordinator, :administrator, :student, :supervisee
+  roles :user, :admin, :administrator, :supervisor, :coordinator, 
+        :student, :supervisee
   def guest?
     self.roles.empty?
   end

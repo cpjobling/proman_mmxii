@@ -10,7 +10,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110522145729) do
+ActiveRecord::Schema.define(:version => 20110525192823) do
+
+  create_table "allocations", :force => true do |t|
+    t.integer  "supervisor_id"
+    t.integer  "student_id"
+    t.string   "session",       :default => "2011-2012"
+    t.integer  "round",         :default => 1
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "allocations", ["project_id"], :name => "index_allocations_on_project_id", :unique => true
+  add_index "allocations", ["student_id"], :name => "index_allocations_on_student_id", :unique => true
+  add_index "allocations", ["supervisor_id"], :name => "index_allocations_on_supervisor_id"
+
+  create_table "projects", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "suitable_for"
+    t.integer  "proposed_by"
+    t.integer  "allocation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
@@ -49,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20110522145729) do
     t.string   "last_name"
     t.string   "known_as"
     t.integer  "roles_mask",                            :default => 0
+    t.string   "type"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
