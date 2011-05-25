@@ -11,8 +11,9 @@
   = devise_error_messages!
 
   =field_set_tag "Account details", :id => 'account_details' do
-    = f.input :email, :readonly => true
-    = f.input :password, :hint => "leave blank if you don't want to change it"
+    = f.input :user_name, :input_html => {:readonly => true}, :hint => "cannot be changed.", :required => false
+    = f.input :email, :input_html => {:readonly => true}, :hint => "cannot be changed."
+    = f.input :password, :hint => "leave blank if you don't want to change it", :required => false
     = f.input :password_confirmation
 
   =field_set_tag "User details", :id => 'user_details' do

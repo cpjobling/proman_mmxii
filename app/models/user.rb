@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
     :first_name, :last_name, :title, :initials, :known_as, :roles
     
-  attr_protected :user_name
+  attr_readonly :user_name
   attr_readonly :email
   
   validates_presence_of :first_name, :last_name

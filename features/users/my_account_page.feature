@@ -40,10 +40,6 @@ Feature: My Account Page
     And I should see "You updated your account successfully."
     Then The user record for "hector.somebody@swansea.ac.uk" should contain the name "Dr" "Hector" "P." "Somebody" known as "Hector" 
           
-  Scenario: I should not be able to change my user name
-    Then I should not see "User name"
-    And I should not see "user[user_name]"
-  
   Scenario: I should be able to change my password
     And I change my password from "please" to "newsecret"
     Then I should see "You updated your account successfully."
@@ -81,7 +77,7 @@ Feature: My Account Page
     And I should see the url for user "hector.somebody@swansea.ac.uk"
     
   Scenario: I should see my system account details plus my AKA 
-    And I fill in "I prefer to be known as" with "Hector"
+    When I fill in "I prefer to be known as" with "Hector"
     And I press "Update"
     And I follow "My profile"
     Then I should see "Hector" within ".user_known_as"
@@ -89,5 +85,18 @@ Feature: My Account Page
   Scenario: I should not need my current password to change my password
     Then I should not see "Current password"
   
-  Scenario: I should only have guest privileges
+  Scenario: I should see user name do
+    Then I should see "User name"
+    And the "User name" field should contain "hector.somebody"
+  
+  Scenario: user name and email should be readonly
+    When I fill in "User name" with "a.n.other"
+    And I fill in "Email" with "a.n.other@swansea.ac.uk"
+    And I fill in "I prefer to be known as" with "After"
+    And I press "Update my account"
+    And I follow "My account"
+    Then the "User name" field should contain "hector.somebody"
+    And the "Email" field should contain "hector.somebody@swansea.ac.uk"
+
+    Scenario: I should only have guest privileges
 
