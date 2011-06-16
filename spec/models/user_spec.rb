@@ -348,22 +348,43 @@ describe User do
   
   describe "admin role" do
     before(:each) do
-      @user = User.create!(@attr)
-      @user.roles << :admin
+      @guest = User.new
+      @user = Factory(:user)
+      @admin = Factory(:admin)
     end
-    it "should not be a role that guest user's have"
+    it "should not be a role that guest user's have" do
+      @guest.should_not have_role(:admin)
+      @guest.should_not be_admin
+    end
     
-    it "should not be a role that new user's have"
+    it "should not be a role that new user's have" do
+      @user.should_not have_role?(:admin)
+      @user.should_not be_admin
+    end
     
-    it "should be a role that only admin user's can add"
+    it "admin users should have_role :admin" do
+      @admin.should have_role(:admin)
+    end
     
-    it "admin users should be recognized"
+    it "admin users should respond positively to admin?" do
+      @admin.should be_admin
+    end
     
     it "should not be possible for admin user to remove role from himself" do
-      @user.should be_admin
-      @user.roles.delete(:admin)
-      #@user.should be_admin
+      @admin.should be_admin
+      @admin.roles.delete(:admin)
+      @admin.should be_admin
     end
+
+    it "should be a role that only admin user's can add"
+
   end
 
+  # Additional validations
+  describe User do    
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
+    it { should_not allow_mass_assignment_of(:type) }
+    it { should_not allow_mass_assignment_of(:user_name) }
+  end
 end

@@ -73,8 +73,9 @@ class User < ActiveRecord::Base
   # User roles
   include RoleModel
   roles_attribute :roles_mask
-  roles :user, :admin, :administrator, :supervisor, :coordinator, 
-        :student, :supervisee
+  roles :user, :admin, :administrator, :academic, :coordinator, 
+        :undergraduate, :supervisee
+
   def guest?
     self.roles.empty?
   end

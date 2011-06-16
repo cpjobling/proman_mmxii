@@ -31,10 +31,12 @@ gem 'rake'
 group :development do
   gem 'nifty-generators'
   gem 'annotate-models'
+  gem 'flutie', '~> 1.1'
 end
 
 group :development, :test do
   gem 'app-themer'
+  gem 'shoulda-matchers'
   gem 'rspec-rails', '>= 2.5.0'
 end
 

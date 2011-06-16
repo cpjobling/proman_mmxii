@@ -8,12 +8,12 @@ Factory.define :user do |user|
   user.last_name 'User'
 end
 
-Factory.define :admin do |user|
-  user.email 'thierrry.administrator@swansea.ac.uk'
-  user.password 'administrate'
-  user.password_confirmation 'administrate'
-  user.first_name 'Thierry'
-  user.last_name 'Administrator'
+Factory.define :email_confirmed_user, :parent => :user do |user|
+  user.after_create { |u| u.confirm! }
+end
+
+Factory.define :admin, :parent => :email_confirmed_user do |user|
+  user.after_build { |u| u.roles << :admin }
 end
 
 Factory.define :student do |student|
@@ -23,6 +23,7 @@ Factory.define :student do |student|
   student.first_name 'Alice'
   student.last_name 'Bright'
   student.title 'Ms'
+  student.after_create { |u| u.confirm! }
 end
 
 Factory.define :supervisor do |supervisor|
@@ -32,4 +33,5 @@ Factory.define :supervisor do |supervisor|
   supervisor.first_name 'Strictly'
   supervisor.last_name 'Academic'
   supervisor.title 'Dr'
+  supervisor.after_create { |u| u.confirm! }
 end
