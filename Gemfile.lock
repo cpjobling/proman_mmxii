@@ -110,6 +110,8 @@ GEM
       em-websocket (>= 0.2.0)
       guard (>= 0.4.0)
       json (>= 1.5.1)
+    guard-pow (0.1.0)
+      guard (>= 0.3.0)
     guard-rspec (0.4.0)
       guard (>= 0.4.0)
     guard-spork (0.2.0)
@@ -227,6 +229,7 @@ DEPENDENCIES
   guard-bundler
   guard-cucumber
   guard-livereload
+  guard-pow
   guard-rspec
   guard-spork
   haml (>= 3.0.25)

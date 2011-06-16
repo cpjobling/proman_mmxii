@@ -28,19 +28,14 @@ gem 'client_side_validations'
 gem 'rake'
 
 
-group :development do
+
+group :development, :test do
   gem 'nifty-generators'
   gem 'annotate-models'
   gem 'flutie', '~> 1.1'
-end
-
-group :development, :test do
   gem 'app-themer'
   gem 'shoulda-matchers'
   gem 'rspec-rails', '>= 2.5.0'
-end
-
-group :test do
   gem 'factory_girl_rails', ">= 1.1.beta1"
   gem 'cucumber-rails', ">= 0.4.1"
   gem 'capybara', ">= 0.4.1.2"
@@ -49,13 +44,16 @@ group :test do
   gem 'mocha'
   gem 'launchy'
   gem 'email_spec'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  group :darwin do
+      gem 'rb-fsevent', :require => false
+      gem 'guard-pow', :require => false
+  end
   gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'guard-spork'
-  gem 'guard-livereload'
-  gem 'guard-bundler'
+  gem 'guard-rspec', :require => false
+  gem 'guard-cucumber', :require => false
+  gem 'guard-spork', :require => false
+  gem 'guard-livereload', :require => false
+  gem 'guard-bundler', :require => false
   gem 'growl'
 end
 
