@@ -27,13 +27,13 @@ gem 'cancan'
 gem 'role_model'
 gem 'client_side_validations'
 gem 'rake'
+gem 'flutie', '~> 1.1'
 
 
 
 group :development, :test do
   gem 'nifty-generators'
   gem 'annotate-models'
-  gem 'flutie', '~> 1.1'
   gem 'app-themer'
   gem 'shoulda-matchers'
   gem 'rspec-rails', '>= 2.5.0'
