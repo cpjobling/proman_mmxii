@@ -1,7 +1,7 @@
 # RVM bootstrap
 $:.unshift(File.expand_path("~/.rvm/lib"))
 require 'rvm/capistrano'
-set :rvm_ruby_string, '1.9.2-p180'
+set :rvm_ruby_string, '1.9.2-p180@Proman2012'
 set :rvm_type, :user
 
 # bundler bootstrap
@@ -52,8 +52,7 @@ end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
 
-# if you're still using the script/rea:q
-per helper you will need
+# if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
 # If you are using Passenger mod_rails uncomment this:

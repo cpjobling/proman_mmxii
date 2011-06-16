@@ -16,12 +16,12 @@ test: &test
   timeout: 5000
 
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: proman
   username: proman
   password: WjKngCHHlNRzLe4q7Lk9Jys4V
-  socket: /var/run/mysqld/mysql.sock  
+  socket: /var/run/mysqld/mysqld.sock  
   pool: 5
   timeout: 5000
 
