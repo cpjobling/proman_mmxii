@@ -1,0 +1,11 @@
+-# CSS: implied media="all"
+= stylesheet_link_tag "app-themer/base", "app-themer/handheld",
+  "app-themer/themes/default/style", "app-themer/override",
+  :flutie, :cache => true
+
+-# Uncomment if you are specifically targeting less enabled mobile browsers
+-#= stylesheet_link_tag 'handheld', :media => 'handheld'
+
+-# Append your own using content_for :stylesheets
+= yield :stylesheets
+
