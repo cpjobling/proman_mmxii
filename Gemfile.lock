@@ -137,6 +137,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mocha (0.9.12)
+    mysql2 (0.2.10)
     nifty-generators (0.4.6)
     nokogiri (1.4.5)
     orm_adapter (0.0.5)
@@ -238,6 +239,7 @@ DEPENDENCIES
   jquery-rails (>= 0.2.7)
   launchy
   mocha
+  mysql2 (~> 0.2.7)
   nifty-generators
   rails (>= 3.0.7)
   rails3-generators
