@@ -1,0 +1,47 @@
+h1, h2, h3, header p {
+  font-family: Verdana, Arial, sans-serif;
+}
+
+body, header {
+  background-color: #666767;
+  color: white;
+}
+
+#container {
+  width: 1000px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+header {
+  padding: 10px;
+  margin: auto;
+}
+
+section#toc {
+  background-color: white;
+  color: #666767;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  padding: 20px;
+  width: 800px;
+}
+
+section#projects {
+  width: 800px;
+}
+div.p_description {
+  background-color: white;
+  color: #666767;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+footer {
+  background-color: white;
+  color: #666767;
+  padding: 10px;
+  border-radius: 15px;
+  padding: 20px;
+}

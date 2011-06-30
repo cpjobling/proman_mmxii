@@ -8,7 +8,7 @@ Proman2012::Application.routes.draw do
     match "tos", :to => 'pages#tos'
     match "license", :to => 'pages#license'
     match "home", :to => 'pages#home'
-  
+
     devise_for :users, :controllers => { :registrations => "registrations" } do
       get "login", :to => "devise/sessions#new"
       get "logout", :to => "devise/sessions#destroy"
@@ -19,14 +19,14 @@ Proman2012::Application.routes.draw do
       resources :projects
     end
     resources :students
-  
+
     #resource :user, :as => :account do
     #  member do
     #    get 'confirm'
     #  end
     #end
   end
-  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -77,7 +77,7 @@ Proman2012::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#home'
+  # root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 
