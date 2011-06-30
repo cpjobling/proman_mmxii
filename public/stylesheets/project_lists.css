@@ -9,13 +9,13 @@ body, header {
 
 #container {
   width: 1000px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 0 auto;
 }
 
 header {
   padding: 10px;
-  margin: auto;
+  margin: 10px auto;
+  width: 800px;
 }
 
 section#toc {
@@ -23,13 +23,17 @@ section#toc {
   color: #666767;
   -moz-border-radius: 15px;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
   width: 800px;
+  margin: 20px auto;
 }
 
 section#projects {
   width: 800px;
+  margin: 20px auto;
+  padding: 20px;
 }
+
 div.p_description {
   background-color: white;
   color: #666767;
@@ -38,10 +42,31 @@ div.p_description {
   padding: 20px;
   margin-bottom: 15px;
 }
+
 footer {
   background-color: white;
   color: #666767;
-  padding: 10px;
   border-radius: 15px;
   padding: 20px;
+  width: 800px;
+  margin: 20px auto;
+}
+
+a:link {
+ text-decoration: none;
+ color: #666767; 
+}
+
+a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #666767;
+}
+
+a:active {
+  color: #666767;
+}
+
+a:visited {
+  color: #666767;
 }
