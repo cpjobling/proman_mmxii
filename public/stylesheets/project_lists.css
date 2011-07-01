@@ -20,7 +20,7 @@ header {
 
 section#toc {
   background-color: white;
-  color: #666767;
+  color: black;
   -moz-border-radius: 15px;
   border-radius: 15px;
   padding: 10px;
@@ -36,7 +36,7 @@ section#projects {
 
 div.p_description {
   background-color: white;
-  color: #666767;
+  color: black;
   -moz-border-radius: 15px;
   border-radius: 15px;
   padding: 20px;
@@ -45,7 +45,7 @@ div.p_description {
 
 footer {
   background-color: white;
-  color: #666767;
+  color: black;
   border-radius: 15px;
   padding: 20px;
   width: 800px;
